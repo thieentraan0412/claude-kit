@@ -1,0 +1,15 @@
+/generate-testcases-from-requirements
+
+# CONTEXT
+- System type: [Web]
+- Module: [MENU]
+- Requirement: [requirements/requirements_menu.md]
+- Tài khoản test -> không giới hạn thao tác
+# MODE
+# - FULL RBT: Quy trình 6 bước đầy đủ → thay bằng /generate-manual-testcases-rbt
+
+# OUTPUT FORMAT
+- Xuất kết quả ra file xlsx. (vd: testcases_`[module_name]`.xlsx)
+- Các cột bắt buộc:
+  TC ID, Module, Test Scenario, Pre-Condition, Test Steps, Test Data, Expected Result, Priority
+- Quy tắc TC ID: [DỰ_ÁN]_[MODULE]_TC_[SỐ] (Ví dụ: CRM_LOGIN_TC_001)
