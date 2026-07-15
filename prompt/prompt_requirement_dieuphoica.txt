@@ -20,15 +20,21 @@ thao tác/luồng (kể cả luồng đa trang), rồi sinh tài liệu Requirem
      và chi tiết hơn (theo luồng + RTM + Gherkin).
 
 # CONTEXT  (thay các giá trị dưới đây cho module thực tế của bạn)
-- Mô tả hệ thống: [Mô tả ngắn gọn về hệ thống hiện tại, module hiện tại]
-- Website URL: https://table1.klkim.com/v2/login
-- Module Name: Login
+- Mô tả hệ thống: [Mô tả ngắn gọn về hệ thống hiện tại, module Điều phối ca]
+- Website URL: https://table1.klkim.com/v2/order/cashier/shift
+- Module Name: Điều phối ca
   # Lưu ý: combo này phát huy tối đa với MODULE NGHIỆP VỤ có nhiều thao tác/luồng
-  # (VD: Return Order, Order, Menu...). Với trang đơn giản như Login, Playbook
-  # archetype và cảnh báo thao tác phá hủy gần như không áp dụng — vẫn chạy được
-  # nhưng chỉ khai thác được phần nhỏ năng lực của skill.
-- Đường đi tới module: [VD: Vào Thu ngân → Menu Trả Hàng] (bỏ trống nếu là trang đăng nhập)
-- Thông tin đăng nhập: test18/admin/12345678  (tài khoản TEST, được phép thao tác)
+  # (VD: Điều phối ca, Return Order, Order, Menu...). Với trang đơn giản như Login,
+  # Playbook archetype và cảnh báo thao tác phá hủy gần như không áp dụng — vẫn chạy
+  # được nhưng chỉ khai thác được phần nhỏ năng lực của skill.
+  # Gợi ý thao tác/luồng thường có ở Điều phối ca (kiểm chứng trên UI thật, KHÔNG bịa):
+  #   - Xem lịch/ca theo ngày/tuần; lọc theo nhân viên/vị trí/bộ phận.
+  #   - Tạo/sửa/xóa ca; gán & bỏ gán nhân viên vào ca; đổi ca giữa nhân viên.
+  #   - Ràng buộc trùng ca / quá giờ / nghỉ phép; cảnh báo xung đột lịch.
+  #   - Duyệt/từ chối yêu cầu đổi ca; trạng thái ca (nháp→công bố→khóa).
+  #   - Phân quyền (Manager điều phối vs nhân viên chỉ xem ca của mình).
+- Đường đi tới module: [VD: Vào Manager → Nhân sự → Điều phối ca] (bỏ trống nếu là trang đăng nhập)
+- Thông tin đăng nhập: thientester/admin/12345678  (tài khoản TEST, được phép thao tác)
 - Scope loại trừ (không đụng tới): [nếu có]
 
 # TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
@@ -47,6 +53,6 @@ thao tác/luồng (kể cả luồng đa trang), rồi sinh tài liệu Requirem
 
 # OUTPUT FORMAT
 - Toàn bộ tài liệu bằng Tiếng Việt, chuyên nghiệp.
-- Xuất file Markdown: requirements/requirements_<module_name>.md
+- Xuất file Markdown: requirements/requirements_dieu_phoi_ca.md
   (theo cấu trúc SRS 10 mục của skill /explore-website-requirements-by-flow).
 - Nếu tài liệu dài, trình bày qua Artifact để tiện lưu/xuất file.

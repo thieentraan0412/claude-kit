@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "app": "orderTable — Cashier (Module Điều phối ca)",
+    "url": "https://table1.klkim.com/v2/order/cashier/shift",
+    "environment": "STAGING",
+    "engine": "Playwright MCP",
+    "account": "admin / Admin master (KHÔNG ghi mật khẩu)",
+    "executed_at": "2026-07-15 22:05",
+    "scope": "Toàn bộ 8 flow module Điều phối ca (FLOW-DPC-01..08)",
+    "platform": "web"
+  },
+  "bugs": [
+    {
+      "id": 1,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập hệ thống Cashier (tài khoản admin), mở menu \"Điều phối ca\" (URL .../v2/order/cashier/shift).",
+        "Ở panel trái \"Lịch sử ca\", mở bộ lọc \"Thời gian\", chọn khoảng 01-06-2026 → 15-07-2026 rồi bấm \"Áp dụng\".",
+        "Click card ca \"SCR00000004CN2\" để nạp ca này vào panel phải (ca có 43 giao dịch: 22 Phiếu thu + 21 Phiếu bán hàng).",
+        "Tại khối \"Giao dịch trong ca\", mở dropdown loại (nút \"Tất cả\") và chọn \"Phiếu bán hàng\", chờ >3 giây.",
+        "Gõ mã \"PC00000073\" vào ô \"Tìm mã, chú thích\" rồi nhấn Enter.",
+        "Bỏ tick checkbox \"Hoàn thành\" ở bộ lọc trạng thái."
+      ],
+      "actual": "Cả 3 control lọc đều KHÔNG tác động lên bảng giao dịch: chọn \"Phiếu bán hàng\" bảng vẫn đủ 43 dòng (không rút còn 21); tìm \"PC00000073\" bảng vẫn 43 dòng (không rút còn 1); bỏ tick \"Hoàn thành\" bảng vẫn 43 dòng. Nhãn nút dropdown có đổi theo lựa chọn nhưng dữ liệu không lọc.",
+      "expected": "Theo FR-DPC-15/16/17: chọn \"Phiếu bán hàng\" → bảng chỉ còn 21 dòng loại đó; tìm \"PC00000073\" → chỉ còn dòng có mã khớp; bỏ tick \"Hoàn thành\" → ẩn các giao dịch trạng thái hoàn thành. (BR-DPC-16)"
+    },
+    {
+      "id": 2,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở (vd SCR00000009CN2, tiền đầu ca 500,000đ, 0 giao dịch).",
+        "Ở panel phải đọc dòng \"Tổng tiền mặt trong ca\" → ghi nhận giá trị hiển thị là 0đ.",
+        "Bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\"; đọc dòng \"Tiền mặt trong ca\" trong modal.",
+        "(Kiểm chứng thêm) Nhập \"600000\" vào ô \"Nhập số tiền thực tế đếm được\" rồi rời khỏi ô (blur) để xem dòng \"Chênh lệch\".",
+        "Lặp lại với nút \"Đóng và in phiếu\" — đọc dòng \"Tiền mặt trong ca\"."
+      ],
+      "actual": "Cùng một ca 0 giao dịch: panel hiển thị \"Tổng tiền mặt trong ca = 0đ\" nhưng modal đóng ca (và modal Đóng và in phiếu) hiển thị \"Tiền mặt trong ca = 500,000đ\" (đang gộp cả tiền đầu ca). Hệ quả: đếm 600,000 thì Chênh lệch = 100,000đ (600,000−500,000) thay vì 600,000đ (600,000−0). Cùng một chỉ số nhưng 2 màn cho 2 giá trị khác nhau.",
+      "expected": "Theo BR-DPC-05 và đặc tả trường §5.1, \"Tiền mặt trong ca\" = Phiếu thu (TM) − Phiếu chi (TM), KHÔNG gồm tiền đầu ca ⇒ = 0đ cho ca 0 giao dịch; giá trị và công thức Chênh lệch phải nhất quán giữa panel và modal.",
+      "fix": "Cần PO xác nhận định nghĩa đúng của \"Tiền mặt trong ca\" (chỉ thu−chi trong ca hay gồm tiền đầu ca) rồi đồng bộ hiển thị + công thức Chênh lệch giữa panel và các modal đóng ca."
+    },
+    {
+      "id": 3,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở.",
+        "Ở panel phải, bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\".",
+        "Quan sát placeholder ô ghi chú: hiển thị \"Nhập ghi chú (tối đa 50 ký tự)\".",
+        "Gõ một chuỗi 61 ký tự vào ô ghi chú (vd \"AUTO_DPC_dongca_ghichu_kiemthu_150726_dem_ky_tu_0123456789_XY\")."
+      ],
+      "actual": "Ô ghi chú cho nhập tới 61 ký tự (thuộc tính DOM maxlength=200), mâu thuẫn với placeholder ghi \"tối đa 50 ký tự\".",
+      "expected": "Thống nhất giới hạn ký tự: nếu giới hạn thật là 50 thì maxlength=50 và chặn nhập quá 50; nếu là 200 thì sửa lại placeholder. (BR-DPC-14)",
+      "fix": "Đồng bộ maxlength với thông báo placeholder (chốt 50 hoặc 200 theo PO)."
+    },
+    {
+      "id": 4,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở.",
+        "Ở panel phải, bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\".",
+        "Quan sát bộ đếm ký tự bên dưới ô ghi chú: hiển thị \"0/200\".",
+        "Gõ 61 ký tự vào ô ghi chú và tiếp tục quan sát bộ đếm."
+      ],
+      "actual": "Bộ đếm ký tự vẫn hiển thị \"0/200\", đứng yên và không cập nhật theo số ký tự đã nhập dù đã gõ 61 ký tự.",
+      "expected": "Bộ đếm cập nhật realtime theo số ký tự đã nhập (ví dụ \"61/200\"). (BR-DPC-15)"
+    },
+    {
+      "id": 5,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\".",
+        "Ở panel trái, mở bộ lọc \"Thời gian\", chọn khoảng đủ rộng (vd 01-06-2026 → 15-07-2026) rồi bấm \"Áp dụng\" để lịch sử ca có nhiều hơn 4 ca → xuất hiện phân trang \"‹ 1 2 ›\".",
+        "Kiểm tra thuộc tính của nút chuyển trang (đọc bằng trình đọc màn hình hoặc Inspect DOM nút ‹ / ›)."
+      ],
+      "actual": "Nút phân trang vẫn giữ key i18n thô chưa dịch trong aria-label: aria-label=\"pagination.previous\" và aria-label=\"pagination.next\" (accessible name của nút là \"pagination.next\"). Trình đọc màn hình sẽ đọc \"pagination next\" thay vì \"Trang sau\". (Phần ký tự nhìn thấy đã là ‹ ›.)",
+      "expected": "aria-label của nút phân trang được dịch sang tiếng Việt (vd \"Trang trước\"/\"Trang sau\"), không để lộ key i18n thô. (NFR-01)",
+      "fix": "Bổ sung bản dịch cho key i18n pagination.previous / pagination.next."
+    },
+    {
+      "id": 6,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", chọn một ca có giao dịch (vd click card \"SCR00000004CN2\").",
+        "Ở bảng \"Giao dịch trong ca\", di chuột lên một dòng bất kỳ (vd dòng có mã \"POS00000074CN2\") → con trỏ đổi thành pointer (bàn tay), gợi ý có thể click.",
+        "Click vào dòng / ô \"Mã chứng từ\" của dòng đó."
+      ],
+      "actual": "Con trỏ hiển thị dạng pointer (gợi ý click được) nhưng khi click vào dòng giao dịch không có bất kỳ hành động nào: không mở chi tiết chứng từ, không điều hướng, không mở modal.",
+      "expected": "Hoặc click mở chi tiết chứng từ (điều hướng sang Bán hàng/Thu chi) đúng như con trỏ pointer ngụ ý; hoặc bỏ style con trỏ pointer nếu dòng không có hành động — để không gây hiểu nhầm. (Câu hỏi làm rõ #14)",
+      "fix": "Cần PO xác nhận hành vi mong muốn khi click dòng giao dịch (mở chi tiết hay bỏ pointer)."
+    }
+  ]
+}

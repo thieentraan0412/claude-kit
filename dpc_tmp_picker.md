@@ -1,0 +1,591 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e6]:
+      - link [ref=e8] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/dashboard
+        - img "ERP" [ref=e9]
+      - generic [ref=e11]:
+        - link [ref=e13] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier
+          - paragraph [ref=e14]: Trang chủ
+        - link [ref=e16] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/history
+          - paragraph [ref=e17]: Lịch sử
+        - link [ref=e19] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/order-booking
+          - paragraph [ref=e20]: Đặt bàn
+        - link [ref=e22] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/shift
+          - paragraph [ref=e23]: Điều phối ca
+        - link [ref=e25] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/income-expense
+          - paragraph [ref=e26]: Thu chi
+        - link [ref=e28] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/return-order
+          - paragraph [ref=e29]: Trả hàng
+        - link [ref=e31] [cursor=pointer]:
+          - /url: https://table1.klkim.com/v2/order/cashier/crm/customers
+          - paragraph [ref=e32]: CRM
+      - generic [ref=e33]:
+        - button [ref=e36] [cursor=pointer]:
+          - img "vi" [ref=e37]
+        - generic [ref=e40] [cursor=pointer]:
+          - generic [ref=e41]: Admin master
+          - generic [ref=e42]: 
+        - generic [ref=e43]:
+          - button "17" [ref=e63] [cursor=pointer]:
+            - generic [ref=e45]: 
+          - text:                   
+        - button "" [ref=e49] [cursor=pointer]
+        - generic [ref=e51] [cursor=pointer]: 
+    - generic [ref=e59]:
+      - generic [ref=e65]:
+        - generic [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]: "Nhân viên: Admin master"
+          - generic [ref=e69]: "Người mở: Admin master"
+          - generic [ref=e71]: "Mã ca: SCR00000008CN2"
+          - generic [ref=e73]: "Giờ mở ca: 15-07-2026 21:06:22"
+          - generic [ref=e75]: "Giờ đóng ca: Đang mở"
+        - generic [ref=e77]:
+          - generic [ref=e78]: Lịch sử ca
+          - generic [ref=e81]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Thời gian
+              - textbox "Chọn thời gian" [ref=e86]: 15-07-2026 00:00 - 15-07-2026 23:59
+            - generic [ref=e88]:
+              - generic [ref=e89]: Nhân viên
+              - combobox [ref=e91]:
+                - option "Tất cả" [selected]
+                - option "Admin master"
+                - option "Võ Văn Tấn Phú"
+                - option "cashier"
+          - generic [ref=e93] [cursor=pointer]:
+            - generic [ref=e94]: "Nhân viên: Admin master"
+            - generic [ref=e96]: "Người mở: Admin master"
+            - generic [ref=e98]: "Mã ca: SCR00000007CN2"
+            - generic [ref=e100]: "Giờ mở ca: 13-07-2026 13:17:20"
+            - generic [ref=e102]: "Giờ đóng ca: 15-07-2026 21:05:23"
+            - generic [ref=e104]:
+              - generic [ref=e105]: "Tổng tiền mặt: 500,000 đ"
+              - generic [ref=e107]:
+                - button "In phiếu" [ref=e108]
+                - button "Chi tiết ca" [ref=e109]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - strong [ref=e116]: 15-07-2026 21:06:22
+                - generic [ref=e117]:
+                  - generic [ref=e118]: 
+                  - text: "Nhân viên:"
+                  - strong [ref=e119]: Admin master
+              - button "Đang mở" [ref=e121] [cursor=pointer]
+            - generic [ref=e122]:
+              - button "Đóng ca" [ref=e123] [cursor=pointer]
+              - button "Đóng và in phiếu" [ref=e126] [cursor=pointer]
+          - generic [ref=e130]: "Tiền mặt đầu ca : 500,000đ"
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - generic [ref=e134]:
+                - generic [ref=e135]: Bán hàng
+                - generic [ref=e138]:
+                  - button [ref=e139] [cursor=pointer]
+                  - text: 
+              - generic [ref=e141]:
+                - generic [ref=e142]:
+                  - generic [ref=e143]: Đơn hàng
+                  - generic [ref=e144]: "0"
+                - generic [ref=e145]:
+                  - generic [ref=e146]: Tổng tiền bán hàng
+                  - generic [ref=e147]: 0đ
+            - generic [ref=e148]:
+              - generic [ref=e149]:
+                - generic [ref=e150]: Trả hàng
+                - button [ref=e154] [cursor=pointer]
+              - generic [ref=e157]:
+                - generic [ref=e158]: Tiền mặt
+                - generic [ref=e159]: 0đ
+            - generic [ref=e160]:
+              - generic [ref=e161]:
+                - generic [ref=e162]: Phiếu thu
+                - button [ref=e166] [cursor=pointer]
+              - generic [ref=e169]:
+                - generic [ref=e170]: Tiền mặt
+                - generic [ref=e171]: 0đ
+            - generic [ref=e172]:
+              - generic [ref=e173]:
+                - generic [ref=e174]: Phiếu chi
+                - button [ref=e178] [cursor=pointer]
+              - generic [ref=e181]:
+                - generic [ref=e182]: Tiền mặt
+                - generic [ref=e183]: 0đ
+        - generic [ref=e187]:
+          - generic [ref=e188]: "Tổng tiền mặt trong ca :"
+          - generic [ref=e189]: 0đ
+        - generic [ref=e190]:
+          - generic [ref=e192]:
+            - generic [ref=e193]: Giao dịch trong ca
+            - paragraph [ref=e194]:
+              - text: "Tổng giao dịch :"
+              - strong [ref=e195]: "0"
+          - generic [ref=e196]:
+            - button "Tất cả" [ref=e198] [cursor=pointer]
+            - textbox "Tìm mã, chú thích" [ref=e199]
+            - generic [ref=e200]:
+              - generic [ref=e201]:
+                - checkbox "Hoàn thành" [checked] [ref=e202]
+                - generic [ref=e203]: Hoàn thành
+              - generic [ref=e204]:
+                - checkbox "Đã hủy" [checked] [ref=e205]
+                - generic [ref=e206]: Đã hủy
+          - table [ref=e208] [cursor=pointer]:
+            - rowgroup [ref=e209]:
+              - row [ref=e210]:
+                - columnheader "STT" [ref=e211]
+                - columnheader "Mã chứng từ" [ref=e212]
+                - columnheader "Loại giao dịch" [ref=e213]
+                - columnheader "Số tiền" [ref=e214]
+                - columnheader "Phương thức thanh toán" [ref=e215]
+                - columnheader "Trạng thái" [ref=e216]
+            - rowgroup
+    - generic [ref=e61]: "© 2025 Nasys | Hỗ trợ: 090 750 1000"
+  - generic [ref=e222]:
+    - generic [ref=e223]:
+      - table [ref=e368]:
+        - rowgroup [ref=e369]:
+          - row [ref=e370]:
+            - columnheader [ref=e371] [cursor=pointer]
+            - columnheader "Tháng 6 2026" [ref=e373] [cursor=pointer]:
+              - combobox [ref=e374]:
+                - option "Tháng 1"
+                - option "Tháng 2"
+                - option "Tháng 3"
+                - option "Tháng 4"
+                - option "Tháng 5"
+                - option "Tháng 6" [selected]
+                - option "Tháng 7"
+                - option "Tháng 8" [disabled]
+                - option "Tháng 9" [disabled]
+                - option "Tháng 10" [disabled]
+                - option "Tháng 11" [disabled]
+                - option "Tháng 12" [disabled]
+              - combobox [ref=e375]:
+                - option "1926"
+                - option "1927"
+                - option "1928"
+                - option "1929"
+                - option "1930"
+                - option "1931"
+                - option "1932"
+                - option "1933"
+                - option "1934"
+                - option "1935"
+                - option "1936"
+                - option "1937"
+                - option "1938"
+                - option "1939"
+                - option "1940"
+                - option "1941"
+                - option "1942"
+                - option "1943"
+                - option "1944"
+                - option "1945"
+                - option "1946"
+                - option "1947"
+                - option "1948"
+                - option "1949"
+                - option "1950"
+                - option "1951"
+                - option "1952"
+                - option "1953"
+                - option "1954"
+                - option "1955"
+                - option "1956"
+                - option "1957"
+                - option "1958"
+                - option "1959"
+                - option "1960"
+                - option "1961"
+                - option "1962"
+                - option "1963"
+                - option "1964"
+                - option "1965"
+                - option "1966"
+                - option "1967"
+                - option "1968"
+                - option "1969"
+                - option "1970"
+                - option "1971"
+                - option "1972"
+                - option "1973"
+                - option "1974"
+                - option "1975"
+                - option "1976"
+                - option "1977"
+                - option "1978"
+                - option "1979"
+                - option "1980"
+                - option "1981"
+                - option "1982"
+                - option "1983"
+                - option "1984"
+                - option "1985"
+                - option "1986"
+                - option "1987"
+                - option "1988"
+                - option "1989"
+                - option "1990"
+                - option "1991"
+                - option "1992"
+                - option "1993"
+                - option "1994"
+                - option "1995"
+                - option "1996"
+                - option "1997"
+                - option "1998"
+                - option "1999"
+                - option "2000"
+                - option "2001"
+                - option "2002"
+                - option "2003"
+                - option "2004"
+                - option "2005"
+                - option "2006"
+                - option "2007"
+                - option "2008"
+                - option "2009"
+                - option "2010"
+                - option "2011"
+                - option "2012"
+                - option "2013"
+                - option "2014"
+                - option "2015"
+                - option "2016"
+                - option "2017"
+                - option "2018"
+                - option "2019"
+                - option "2020"
+                - option "2021"
+                - option "2022"
+                - option "2023"
+                - option "2024"
+                - option "2025"
+                - option "2026" [selected]
+            - columnheader [ref=e376] [cursor=pointer]
+          - row [ref=e377]:
+            - columnheader "CN" [ref=e378] [cursor=pointer]
+            - columnheader "Hai" [ref=e379] [cursor=pointer]
+            - columnheader "Ba" [ref=e380] [cursor=pointer]
+            - columnheader "Tư" [ref=e381] [cursor=pointer]
+            - columnheader "Năm" [ref=e382] [cursor=pointer]
+            - columnheader "Sáu" [ref=e383] [cursor=pointer]
+            - columnheader "Bảy" [ref=e384] [cursor=pointer]
+        - rowgroup [ref=e385]:
+          - row [ref=e386]:
+            - cell "31" [ref=e387] [cursor=pointer]
+            - cell "1" [ref=e388] [cursor=pointer]
+            - cell "2" [ref=e389] [cursor=pointer]
+            - cell "3" [ref=e390] [cursor=pointer]
+            - cell "4" [ref=e391] [cursor=pointer]
+            - cell "5" [ref=e392] [cursor=pointer]
+            - cell "6" [ref=e393] [cursor=pointer]
+          - row [ref=e394]:
+            - cell "7" [ref=e395] [cursor=pointer]
+            - cell "8" [ref=e396] [cursor=pointer]
+            - cell "9" [ref=e397] [cursor=pointer]
+            - cell "10" [ref=e398] [cursor=pointer]
+            - cell "11" [ref=e399] [cursor=pointer]
+            - cell "12" [ref=e400] [cursor=pointer]
+            - cell "13" [ref=e401] [cursor=pointer]
+          - row [ref=e402]:
+            - cell "14" [ref=e403] [cursor=pointer]
+            - cell "15" [ref=e404] [cursor=pointer]
+            - cell "16" [ref=e405] [cursor=pointer]
+            - cell "17" [ref=e406] [cursor=pointer]
+            - cell "18" [ref=e407] [cursor=pointer]
+            - cell "19" [ref=e408] [cursor=pointer]
+            - cell "20" [ref=e409] [cursor=pointer]
+          - row [ref=e410]:
+            - cell "21" [ref=e411] [cursor=pointer]
+            - cell "22" [ref=e412] [cursor=pointer]
+            - cell "23" [ref=e413] [cursor=pointer]
+            - cell "24" [ref=e414] [cursor=pointer]
+            - cell "25" [ref=e415] [cursor=pointer]
+            - cell "26" [ref=e416] [cursor=pointer]
+            - cell "27" [ref=e417] [cursor=pointer]
+          - row [ref=e418]:
+            - cell "28" [ref=e419] [cursor=pointer]
+            - cell "29" [ref=e420] [cursor=pointer]
+            - cell "30" [ref=e421] [cursor=pointer]
+            - cell "1" [ref=e422] [cursor=pointer]
+            - cell "2" [ref=e423] [cursor=pointer]
+            - cell "3" [ref=e424] [cursor=pointer]
+            - cell "4" [ref=e425] [cursor=pointer]
+          - row [ref=e426]:
+            - cell "5" [ref=e427] [cursor=pointer]
+            - cell "6" [ref=e428] [cursor=pointer]
+            - cell "7" [ref=e429] [cursor=pointer]
+            - cell "8" [ref=e430] [cursor=pointer]
+            - cell "9" [ref=e431] [cursor=pointer]
+            - cell "10" [ref=e432] [cursor=pointer]
+            - cell "11" [ref=e433] [cursor=pointer]
+      - generic [ref=e291]:
+        - combobox [ref=e434]:
+          - option "0" [selected]
+          - option "1"
+          - option "2"
+          - option "3"
+          - option "4"
+          - option "5"
+          - option "6"
+          - option "7"
+          - option "8"
+          - option "9"
+          - option "10"
+          - option "11"
+          - option "12"
+          - option "13"
+          - option "14"
+          - option "15"
+          - option "16"
+          - option "17"
+          - option "18"
+          - option "19"
+          - option "20"
+          - option "21"
+          - option "22"
+          - option "23"
+        - text: ":"
+        - combobox [ref=e435]:
+          - option "00" [selected]
+          - option "01"
+          - option "02"
+          - option "03"
+          - option "04"
+          - option "05"
+          - option "06"
+          - option "07"
+          - option "08"
+          - option "09"
+          - option "10"
+          - option "11"
+          - option "12"
+          - option "13"
+          - option "14"
+          - option "15"
+          - option "16"
+          - option "17"
+          - option "18"
+          - option "19"
+          - option "20"
+          - option "21"
+          - option "22"
+          - option "23"
+          - option "24"
+          - option "25"
+          - option "26"
+          - option "27"
+          - option "28"
+          - option "29"
+          - option "30"
+          - option "31"
+          - option "32"
+          - option "33"
+          - option "34"
+          - option "35"
+          - option "36"
+          - option "37"
+          - option "38"
+          - option "39"
+          - option "40"
+          - option "41"
+          - option "42"
+          - option "43"
+          - option "44"
+          - option "45"
+          - option "46"
+          - option "47"
+          - option "48"
+          - option "49"
+          - option "50"
+          - option "51"
+          - option "52"
+          - option "53"
+          - option "54"
+          - option "55"
+          - option "56"
+          - option "57"
+          - option "58"
+          - option "59"
+    - generic [ref=e294]:
+      - table [ref=e436]:
+        - rowgroup [ref=e437]:
+          - row [ref=e438]:
+            - columnheader [ref=e439] [cursor=pointer]
+            - columnheader "Tháng 7 2026" [ref=e440] [cursor=pointer]:
+              - combobox [ref=e441]:
+                - option "Tháng 1" [disabled]
+                - option "Tháng 2" [disabled]
+                - option "Tháng 3" [disabled]
+                - option "Tháng 4" [disabled]
+                - option "Tháng 5" [disabled]
+                - option "Tháng 6"
+                - option "Tháng 7" [selected]
+                - option "Tháng 8" [disabled]
+                - option "Tháng 9" [disabled]
+                - option "Tháng 10" [disabled]
+                - option "Tháng 11" [disabled]
+                - option "Tháng 12" [disabled]
+              - combobox [ref=e442]:
+                - option "2026" [selected]
+            - columnheader [ref=e443] [cursor=pointer]
+          - row [ref=e444]:
+            - columnheader "CN" [ref=e445] [cursor=pointer]
+            - columnheader "Hai" [ref=e446] [cursor=pointer]
+            - columnheader "Ba" [ref=e447] [cursor=pointer]
+            - columnheader "Tư" [ref=e448] [cursor=pointer]
+            - columnheader "Năm" [ref=e449] [cursor=pointer]
+            - columnheader "Sáu" [ref=e450] [cursor=pointer]
+            - columnheader "Bảy" [ref=e451] [cursor=pointer]
+        - rowgroup [ref=e452]:
+          - row [ref=e453]:
+            - cell "28" [ref=e454] [cursor=pointer]
+            - cell "29" [ref=e455] [cursor=pointer]
+            - cell "30" [ref=e456] [cursor=pointer]
+            - cell "1" [ref=e457] [cursor=pointer]
+            - cell "2" [ref=e458] [cursor=pointer]
+            - cell "3" [ref=e459] [cursor=pointer]
+            - cell "4" [ref=e460] [cursor=pointer]
+          - row [ref=e461]:
+            - cell "5" [ref=e462] [cursor=pointer]
+            - cell "6" [ref=e463] [cursor=pointer]
+            - cell "7" [ref=e464] [cursor=pointer]
+            - cell "8" [ref=e465] [cursor=pointer]
+            - cell "9" [ref=e466] [cursor=pointer]
+            - cell "10" [ref=e467] [cursor=pointer]
+            - cell "11" [ref=e468] [cursor=pointer]
+          - row [ref=e469]:
+            - cell "12" [ref=e470] [cursor=pointer]
+            - cell "13" [ref=e471] [cursor=pointer]
+            - cell "14" [ref=e472] [cursor=pointer]
+            - cell "15" [ref=e473] [cursor=pointer]
+            - cell "16" [ref=e474]
+            - cell "17" [ref=e475]
+            - cell "18" [ref=e476]
+          - row [ref=e477]:
+            - cell "19" [ref=e478]
+            - cell "20" [ref=e479]
+            - cell "21" [ref=e480]
+            - cell "22" [ref=e481]
+            - cell "23" [ref=e482]
+            - cell "24" [ref=e483]
+            - cell "25" [ref=e484]
+          - row [ref=e485]:
+            - cell "26" [ref=e486]
+            - cell "27" [ref=e487]
+            - cell "28" [ref=e488]
+            - cell "29" [ref=e489]
+            - cell "30" [ref=e490]
+            - cell "31" [ref=e491]
+            - cell "1" [ref=e492]
+          - row [ref=e493]:
+            - cell "2" [ref=e494]
+            - cell "3" [ref=e495]
+            - cell "4" [ref=e496]
+            - cell "5" [ref=e497]
+            - cell "6" [ref=e498]
+            - cell "7" [ref=e499]
+            - cell "8" [ref=e500]
+      - generic [ref=e361]:
+        - combobox [disabled] [ref=e362]:
+          - option "0"
+          - option "1"
+          - option "2"
+          - option "3"
+          - option "4"
+          - option "5"
+          - option "6"
+          - option "7"
+          - option "8"
+          - option "9"
+          - option "10"
+          - option "11"
+          - option "12"
+          - option "13"
+          - option "14"
+          - option "15"
+          - option "16"
+          - option "17"
+          - option "18"
+          - option "19"
+          - option "20"
+          - option "21"
+          - option "22"
+          - option "23" [selected]
+        - text: ":"
+        - combobox [disabled] [ref=e363]:
+          - option "00"
+          - option "01"
+          - option "02"
+          - option "03"
+          - option "04"
+          - option "05"
+          - option "06"
+          - option "07"
+          - option "08"
+          - option "09"
+          - option "10"
+          - option "11"
+          - option "12"
+          - option "13"
+          - option "14"
+          - option "15"
+          - option "16"
+          - option "17"
+          - option "18"
+          - option "19"
+          - option "20"
+          - option "21"
+          - option "22"
+          - option "23"
+          - option "24"
+          - option "25"
+          - option "26"
+          - option "27"
+          - option "28"
+          - option "29"
+          - option "30"
+          - option "31"
+          - option "32"
+          - option "33"
+          - option "34"
+          - option "35"
+          - option "36"
+          - option "37"
+          - option "38"
+          - option "39"
+          - option "40"
+          - option "41"
+          - option "42"
+          - option "43"
+          - option "44"
+          - option "45"
+          - option "46"
+          - option "47"
+          - option "48"
+          - option "49"
+          - option "50"
+          - option "51"
+          - option "52"
+          - option "53"
+          - option "54"
+          - option "55"
+          - option "56"
+          - option "57"
+          - option "58"
+          - option "59" [selected]
+    - generic [ref=e364]:
+      - generic [ref=e365]: 15-07-2026 00:00 - 15-07-2026 23:59
+      - button "Hủy" [ref=e366] [cursor=pointer]
+      - button "Áp dụng" [disabled]

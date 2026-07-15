@@ -1,0 +1,199 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - link [ref=e8] [cursor=pointer]:
+      - /url: https://table1.klkim.com/v2/dashboard
+      - img "ERP" [ref=e9]
+    - generic [ref=e11]:
+      - link [ref=e13] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier
+        - paragraph [ref=e14]: Trang chủ
+      - link [ref=e16] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/history
+        - paragraph [ref=e17]: Lịch sử
+      - link [ref=e19] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/order-booking
+        - paragraph [ref=e20]: Đặt bàn
+      - link [ref=e22] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/shift
+        - paragraph [ref=e23]: Điều phối ca
+      - link [ref=e25] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/income-expense
+        - paragraph [ref=e26]: Thu chi
+      - link [ref=e28] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/return-order
+        - paragraph [ref=e29]: Trả hàng
+      - link [ref=e31] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/crm/customers
+        - paragraph [ref=e32]: CRM
+    - generic [ref=e33]:
+      - button [ref=e36] [cursor=pointer]:
+        - img "vi" [ref=e37]
+      - generic [ref=e40] [cursor=pointer]:
+        - generic [ref=e41]: Admin master
+        - generic [ref=e42]: 
+      - generic [ref=e43]:
+        - button "17" [ref=e63] [cursor=pointer]:
+          - generic [ref=e45]: 
+        - text:                   
+      - button "" [ref=e49] [cursor=pointer]
+      - generic [ref=e51] [cursor=pointer]: 
+  - generic [ref=e59]:
+    - generic [ref=e64]:
+      - generic [ref=e1026]:
+        - generic [ref=e1027] [cursor=pointer]:
+          - generic [ref=e1028]: "Nhân viên: Admin master"
+          - generic [ref=e1030]: "Người mở: Admin master"
+          - generic [ref=e1032]: "Mã ca: SCR00000008CN2"
+          - generic [ref=e1034]: "Giờ mở ca: 15-07-2026 21:06:22"
+          - generic [ref=e1036]: "Giờ đóng ca: Đang mở"
+        - generic [ref=e1038]:
+          - generic [ref=e1039]: Lịch sử ca
+          - generic [ref=e1042]:
+            - generic [ref=e1044]:
+              - generic [ref=e1045]: Thời gian
+              - textbox "Chọn thời gian" [ref=e1047]: 01-06-2026 00:00 - 15-07-2026 23:59
+            - generic [ref=e1049]:
+              - generic [ref=e1050]: Nhân viên
+              - combobox [ref=e1052]:
+                - option "Tất cả" [selected]
+                - option "Admin master"
+                - option "Võ Văn Tấn Phú"
+                - option "cashier"
+          - generic [ref=e1053]:
+            - generic [ref=e1054] [cursor=pointer]:
+              - generic [ref=e1055]: "Nhân viên: Admin master"
+              - generic [ref=e1057]: "Người mở: Admin master"
+              - generic [ref=e1059]: "Mã ca: SCR00000007CN2"
+              - generic [ref=e1061]: "Giờ mở ca: 13-07-2026 13:17:20"
+              - generic [ref=e1063]: "Giờ đóng ca: 15-07-2026 21:05:23"
+              - generic [ref=e1065]:
+                - generic [ref=e1066]: "Tổng tiền mặt: 500,000 đ"
+                - generic [ref=e1068]:
+                  - button "In phiếu" [ref=e1069]
+                  - button "Chi tiết ca" [ref=e1070]
+            - generic [ref=e1071] [cursor=pointer]:
+              - generic [ref=e1072]: "Nhân viên: Admin master"
+              - generic [ref=e1074]: "Người mở: Admin master"
+              - generic [ref=e1076]: "Mã ca: SCR00000005CN2"
+              - generic [ref=e1078]: "Giờ mở ca: 06-07-2026 08:41:47"
+              - generic [ref=e1080]: "Giờ đóng ca: 13-07-2026 13:16:25"
+              - generic [ref=e1082]:
+                - generic [ref=e1083]: "Tổng tiền mặt: 0 đ"
+                - generic [ref=e1085]:
+                  - button "In phiếu" [ref=e1086]
+                  - button "Chi tiết ca" [ref=e1087]
+            - generic [ref=e1088] [cursor=pointer]:
+              - generic [ref=e1089]: "Nhân viên: Võ Văn Tấn Phú"
+              - generic [ref=e1091]: "Người mở: Võ Văn Tấn Phú"
+              - generic [ref=e1093]: "Mã ca: SCR00000004CN2"
+              - generic [ref=e1095]: "Giờ mở ca: 05-07-2026 11:32:58"
+              - generic [ref=e1097]: "Giờ đóng ca: 06-07-2026 02:27:39"
+              - generic [ref=e1099]:
+                - generic [ref=e1100]: "Tổng tiền mặt: 17,796,446 đ"
+                - generic [ref=e1102]:
+                  - button "In phiếu" [ref=e1103]
+                  - button "Chi tiết ca" [ref=e1104]
+            - generic [ref=e1105] [cursor=pointer]:
+              - generic [ref=e1106]: "Nhân viên: Võ Văn Tấn Phú"
+              - generic [ref=e1108]: "Người mở: Võ Văn Tấn Phú"
+              - generic [ref=e1110]: "Mã ca: SCR00000003CN2"
+              - generic [ref=e1112]: "Giờ mở ca: 05-07-2026 10:48:33"
+              - generic [ref=e1114]: "Giờ đóng ca: 05-07-2026 11:32:38"
+              - generic [ref=e1116]:
+                - generic [ref=e1117]: "Tổng tiền mặt: 1,000,000 đ"
+                - generic [ref=e1119]:
+                  - button "In phiếu" [ref=e1120]
+                  - button "Chi tiết ca" [ref=e1121]
+      - navigation [ref=e1123]:
+        - list [ref=e1124]:
+          - listitem "pagination.previous" [ref=e1125]:
+            - generic: ‹
+          - listitem [ref=e1126]:
+            - generic [ref=e1127]: "1"
+          - listitem [ref=e1128]:
+            - link "2" [ref=e1129] [cursor=pointer]:
+              - /url: https://table1.klkim.com/v2/order/cashier/shift/list?page=2
+          - listitem [ref=e1130]:
+            - link "pagination.next" [ref=e1131] [cursor=pointer]:
+              - /url: https://table1.klkim.com/v2/order/cashier/shift/list?page=2
+              - text: ›
+    - generic [ref=e1132]:
+      - generic [ref=e1133]:
+        - generic [ref=e1134]:
+          - generic [ref=e1135]:
+            - generic [ref=e1136]:
+              - strong [ref=e1137]: 15-07-2026 21:06:22
+              - generic [ref=e1138]:
+                - generic [ref=e1139]: 
+                - text: "Nhân viên:"
+                - strong [ref=e1140]: Admin master
+            - button "Đang mở" [ref=e1142] [cursor=pointer]
+          - generic [ref=e1143]:
+            - button "Đóng ca" [ref=e1144] [cursor=pointer]
+            - button "Đóng và in phiếu" [ref=e1147] [cursor=pointer]
+        - generic [ref=e1151]: "Tiền mặt đầu ca : 500,000đ"
+        - generic [ref=e1153]:
+          - generic [ref=e1154]:
+            - generic [ref=e1155]:
+              - generic [ref=e1156]: Bán hàng
+              - generic [ref=e1159]:
+                - button [ref=e1160] [cursor=pointer]
+                - text: 
+            - generic [ref=e1162]:
+              - generic [ref=e1163]:
+                - generic [ref=e1164]: Đơn hàng
+                - generic [ref=e1165]: "0"
+              - generic [ref=e1166]:
+                - generic [ref=e1167]: Tổng tiền bán hàng
+                - generic [ref=e1168]: 0đ
+          - generic [ref=e1169]:
+            - generic [ref=e1170]:
+              - generic [ref=e1171]: Trả hàng
+              - button [ref=e1175] [cursor=pointer]
+            - generic [ref=e1178]:
+              - generic [ref=e1179]: Tiền mặt
+              - generic [ref=e1180]: 0đ
+          - generic [ref=e1181]:
+            - generic [ref=e1182]:
+              - generic [ref=e1183]: Phiếu thu
+              - button [ref=e1187] [cursor=pointer]
+            - generic [ref=e1190]:
+              - generic [ref=e1191]: Tiền mặt
+              - generic [ref=e1192]: 0đ
+          - generic [ref=e1193]:
+            - generic [ref=e1194]:
+              - generic [ref=e1195]: Phiếu chi
+              - button [ref=e1199] [cursor=pointer]
+            - generic [ref=e1202]:
+              - generic [ref=e1203]: Tiền mặt
+              - generic [ref=e1204]: 0đ
+      - generic [ref=e1208]:
+        - generic [ref=e1209]: "Tổng tiền mặt trong ca :"
+        - generic [ref=e1210]: 0đ
+      - generic [ref=e1211]:
+        - generic [ref=e1213]:
+          - generic [ref=e1214]: Giao dịch trong ca
+          - paragraph [ref=e1215]:
+            - text: "Tổng giao dịch :"
+            - strong [ref=e1216]: "0"
+        - generic [ref=e1217]:
+          - button "Tất cả" [ref=e1219] [cursor=pointer]
+          - textbox "Tìm mã, chú thích" [ref=e1220]
+          - generic [ref=e1221]:
+            - generic [ref=e1222]:
+              - checkbox "Hoàn thành" [checked] [ref=e1223]
+              - generic [ref=e1224]: Hoàn thành
+            - generic [ref=e1225]:
+              - checkbox "Đã hủy" [checked] [ref=e1226]
+              - generic [ref=e1227]: Đã hủy
+        - table [ref=e1229] [cursor=pointer]:
+          - rowgroup [ref=e1230]:
+            - row [ref=e1231]:
+              - columnheader "STT" [ref=e1232]
+              - columnheader "Mã chứng từ" [ref=e1233]
+              - columnheader "Loại giao dịch" [ref=e1234]
+              - columnheader "Số tiền" [ref=e1235]
+              - columnheader "Phương thức thanh toán" [ref=e1236]
+              - columnheader "Trạng thái" [ref=e1237]
+          - rowgroup
+  - generic [ref=e61]: "© 2025 Nasys | Hỗ trợ: 090 750 1000"

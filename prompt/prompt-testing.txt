@@ -1,0 +1,54 @@
+# MỤC TIÊU
+Thực thi (chạy thật) bộ test case có sẵn trong file Excel trực tiếp trên website,
+chấm PASS/FAIL/BLOCKED/SKIP theo Expected Result, ghi kết quả ngược vào Excel và
+sinh báo cáo tổng hợp + bug report cho các case FAIL.
+Đây là EXECUTION (kiểm thử thật), KHÔNG phải sinh code automation.
+
+# SKILL SỬ DỤNG
+/execute-testcases-from-excel  (tại .claude/skills/execute-testcases-from-excel/SKILL.md)
+- Nếu `/` không resolve → Read thẳng file SKILL.md ở trên và làm theo 7 bước.
+- Skill bắt buộc nạp kèm: /manual-testing-techniques (chuẩn PASS/FAIL, bug report),
+  .claude/rules/locator_strategy.md, .claude/rules/delivery_checklist.md.
+
+# INPUT (2 file — đọc trước khi chạy)
+1) FILE MÔI TRƯỜNG:  prompt/Enviroment.txt
+   - Lấy: Link test (URL), Tài khoản (tk), Mật khẩu (mk) và các tùy chọn (đường đi, OTP/2FA).
+   - Đây là tài khoản TEST được phép thao tác. KHÔNG đọc `.env` để lấy credential.
+2) FILE EXCEL TEST CASE:  testcases/testcases_Return.xlsx
+   - Đọc bằng helper Node (KHÔNG parse thủ công). Cần package `exceljs`
+     (npm i exceljs, hoặc set NODE_PATH tới node_modules có exceljs):
+     NODE_PATH="<node_modules_có_exceljs>" \
+     node .claude/skills/execute-testcases-from-excel/scripts/excel_io.js read \
+         "<path_excel>" --out run/testcases.json
+   - Schema chuẩn: TC ID | Module | Risk Level | Test Title | Pre-Condition |
+     Test Steps | Expected Result | Priority | Test Data.
+
+# PHẠM VI CHẠY (Scope)
+- [ ] Chạy TẤT CẢ test case, HOẶC
+- [ ] Lọc theo:  Priority = [VD: P1/High]  /  Module = [...]  /  danh sách TC ID = [...]
+> Suite > 15 TC hoặc chưa rõ scope → DỪNG hỏi user trước khi chạy.
+
+# TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
+- CHỈ chạy trên môi trường TEST/STAGING bằng tài khoản trong Enviroment.txt.
+- Cần Playwright/Browser MCP (hoặc Chrome extension "Claude in Chrome") để tương tác DOM thật.
+  Chưa có engine nào kết nối → DỪNG, báo user. TUYỆT ĐỐI KHÔNG đoán locator / không suy diễn kết quả.
+- CAPTCHA/OTP/2FA không tự vượt được → nhờ user thao tác, hoặc đánh TC đó BLOCKED kèm lý do.
+
+# NGUYÊN TẮC CHẤM ĐIỂM
+- Kết quả thực tế ≠ Expected  ⇒  BUG của sản phẩm → ghi FAIL + tạo bug report.
+  KHÔNG sửa gì để ép PASS, KHÔNG auto-heal.
+- Chỉ chấm dựa trên trạng thái quan sát THẬT trên UI — không suy diễn "chắc là chạy được".
+- Mỗi TC độc lập: reset trạng thái / đăng nhập lại nếu cần trước mỗi TC.
+- Desktop viewport 1920x1080. Dùng smart wait, CẤM hard-sleep.
+- Bắt buộc chụp evidence: ảnh trạng thái cuối mỗi TC + ảnh tại bước lỗi với mọi TC FAIL.
+
+# OUTPUT (Tiếng Việt)
+- File Excel đã chấm: <tên>_executed.xlsx  (thêm cột Actual Result / Status / Executed At /
+  Evidence / Note-Bug ID, tô màu theo trạng thái).
+- Đặt file excel đã chấm vào folder Result
+- Báo cáo tổng hợp: run/report.md  (Summary + pass rate + bảng chi tiết + bug report
+  theo chuẩn /manual-testing-techniques, kèm Severity/Priority).
+- Evidence screenshots: run/evidence/
+- Nhật ký tiến độ: run/task.md
+- Tóm tắt cuối cho user: X PASS / Y FAIL / Z BLOCKED / W SKIP (pass rate) +
+  danh sách bug đã log + các TC BLOCKED và lý do + limitations.

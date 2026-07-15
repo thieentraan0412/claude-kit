@@ -1,0 +1,65 @@
+# MỤC TIÊU
+Tự KHÁM PHÁ và sử dụng website như một QA tester thật (exploratory bug hunting):
+đối chiếu hành vi thực tế trên browser với Requirement, chủ động phá bằng data
+xấu/biên, tái hiện từng lỗi, rồi viết MỖI LỖI thành một TESTCASE-LỖI và xuất ra
+file Excel đặt trong folder `Result/`.
+Đây là EXECUTION + BUG HUNTING — KHÔNG sinh code automation, KHÔNG chạy test case có sẵn.
+
+# SKILL SỬ DỤNG (Pipeline — theo đúng thứ tự)
+1) /explore-and-report-bugs-to-excel  (tại .claude/skills/explore-and-report-bugs-to-excel/SKILL.md)
+   → ĐỘNG CƠ CHÍNH. Nếu `/` không resolve → Read thẳng file SKILL.md và làm theo các bước.
+   - Bắt buộc nạp kèm (theo yêu cầu của skill):
+     • /manual-testing-techniques — kỹ thuật test (EP/BVA/Decision Table/Error Guessing),
+       chuẩn Bug Report, Severity vs Priority.
+     • .claude/rules/locator_strategy.md — xác định element ổn định khi tương tác live.
+     • .claude/rules/delivery_checklist.md — Definition of Done trước khi bàn giao.
+2) Tận dụng khi tới bước tương ứng:
+   - /generate-application-test-plan hoặc /explore-website-requirements-by-flow —
+     dựng bản đồ coverage, đi hết menu/tab/modal/nhánh rẽ, không bỏ sót màn hình.
+   - /generate-test-data — sinh data xấu/biên/edge (rỗng, quá dài, ký tự đặc biệt,
+     số âm, boundary) để chủ động phá.
+   - /ui-debug-agent — inspect DOM khi element khó thao tác.
+
+# INPUT (2 file — ĐỌC TRƯỚC KHI CHẠY)
+1) FILE MÔI TRƯỜNG:  Partital/Enviroment.txt
+   - Lấy: Link test (URL), Id cửa hàng, Tài khoản (tk), Mật khẩu (mk), tên môi trường,
+     đường đi tới màn hình cần test, ghi chú OTP/2FA/CAPTCHA.
+   - Đây là tài khoản TEST được phép thao tác. KHÔNG đọc `.env` để lấy credential.
+2) FILE REQUIREMENT (nguồn chân lý / test basis):  requirements/requirements_Return.md
+   [thay bằng requirement.txt hoặc file requirement thực tế của bạn nếu khác]
+   - Lỗi = hành vi thật ≠ Requirement. Hành vi không có trong spec → dùng heuristic
+     phán đoán và đánh dấu "nghi ngờ — cần PO xác nhận", không kết luận vội.
+
+# PHẠM VI TEST (Scope)
+- Module: Return (Trả hàng)   [sửa theo module thực tế]
+- Ưu tiên: luồng nghiệp vụ chính theo requirement → validation input → biên/data xấu
+  → trạng thái & điều hướng → console/network.
+- Scope loại trừ (không đụng tới): [nếu có]
+
+# TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
+- CHỈ chạy trên môi trường TEST/STAGING bằng tài khoản trong Partital/Enviroment.txt.
+- Cần Playwright MCP (ưu tiên) hoặc Chrome extension "Claude in Chrome" để tương tác
+  DOM thật. Chưa có engine nào kết nối → DỪNG, báo user. TUYỆT ĐỐI KHÔNG đoán locator,
+  không suy diễn kết quả.
+- Thao tác phá hủy (Create/Edit/Delete) ĐƯỢC PHÉP để test sâu, nhưng DỪNG xác nhận
+  với user 1 lần trước khi bắt đầu; ghi log mọi thao tác phá hủy vào run/task.md.
+- CAPTCHA/OTP/2FA không tự vượt được → nhờ user thao tác hoặc ghi nhận BLOCKED kèm lý do.
+
+# NGUYÊN TẮC THỰC THI
+- Desktop viewport 1920x1080 (Playwright MCP: browser_navigate → browser_resize(1920,1080)
+  → browser_snapshot). Smart wait, CẤM hard-sleep.
+- Chỉ ghi lỗi quan sát THẬT và đã TÁI HIỆN được (>= 2 lần) — không bịa lỗi cho đủ số lượng.
+- 1 lỗi = 1 testcase-lỗi = 1 dòng Excel: đủ Pre-condition + Steps tối giản + Test Data
+  + Expected (theo requirement, kèm Requirement Ref) + Actual + Severity/Priority + Evidence.
+- Bắt buộc chụp evidence (screenshot tại bước lỗi, console/network error) cho mọi bug.
+- Theo dõi console + network ngay từ recon — lỗi JS / HTTP 4xx/5xx cũng là finding.
+
+# OUTPUT (Tiếng Việt)
+- Findings trung gian: run/bugs.json (đúng schema của skill).
+- FILE EXCEL TESTCASE-LỖI → folder `Result/` (tạo nếu chưa có, không đè file cũ):
+  node .claude/skills/explore-and-report-bugs-to-excel/scripts/bugs_to_excel.js write \
+      run/bugs.json --out "Result/bugs_Return_<YYYYMMDD>.xlsx"
+  (cần package `exceljs` — thiếu thì npm install exceljs)
+- Báo cáo tổng hợp: run/report.md | Evidence: run/evidence/ | Nhật ký: run/task.md
+- Tóm tắt cuối cho user: tổng N bug (Critical/Major/Minor/Trivial), số màn hình đã
+  soi / BLOCKED, đường dẫn file Excel trong Result/, các điểm cần PO xác nhận.

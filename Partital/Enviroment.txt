@@ -1,0 +1,14 @@
+# MÔI TRƯỜNG TEST (Test Environment)
+# File này cung cấp thông tin môi trường cho prompt-testing.txt.
+# Chỉ dùng tài khoản TEST/STAGING — KHÔNG dùng tài khoản/dữ liệu cá nhân thật.
+# Thay các giá trị dưới đây cho môi trường thực tế của bạn.
+
+- Link test (URL):     https://table1.klkim.com/v2/order/cashier/return-order
+- Id cửa hàng: Thientester  
+- Tài khoản (tk):      admin    
+- Mật khẩu (mk):       12345678
+
+# --- Tùy chọn (điền nếu cần) ---
+- Tên môi trường:      STAGING
+- Đường đi tới màn hình cần test:   [VD: Vào Thu ngân → Menu Trả Hàng]
+- Ghi chú OTP/2FA/CAPTCHA:          [nếu có — mô tả cách xử lý hoặc để trống]

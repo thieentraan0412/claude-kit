@@ -1,0 +1,61 @@
+# MỤC TIÊU
+Kiểm thử (chạy thật) website theo REQUIREMENT có sẵn: đọc tài liệu requirement, đối chiếu
+hành vi thật của web với requirement để phát hiện lỗi, rồi viết mỗi lỗi thành bug CHI TIẾT
+TỪNG BƯỚC TÁI HIỆN và xuất ra Excel theo mẫu 3 cột (id | web/flutter | Bug).
+Đây là EXECUTION + BUG HUNTING, KHÔNG sinh code automation.
+
+# PIPELINE SKILL (theo đúng thứ tự)
+1) /analyze-requirement-document  → ĐỌC & BÓC TÁCH REQUIREMENT.
+   (tại .claude/skills/analyze-requirement-document/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Đọc file requirement đầu vào, bóc tách thành danh sách QUY TẮC KIỂM CHỨNG ĐƯỢC:
+     mã hóa FR/BR/NFR, field bắt buộc, ràng buộc định dạng/độ dài/giá trị biên, luồng
+     trạng thái hợp lệ, thông báo lỗi kỳ vọng, phân quyền... → đây là "Expected" để so.
+   - KHÔNG sinh test case ở bước này; chỉ chuẩn hóa requirement thành nguồn chân lý.
+
+2) /explore-and-report-bugs-to-excel  → ĐỘNG CƠ CHÍNH (test web + xuất bug).
+   (tại .claude/skills/explore-and-report-bugs-to-excel/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Khám phá web thật + đối chiếu hành vi với requirement đã bóc tách ở (1).
+   - Chủ động phá bằng data xấu/biên; hành vi thật ≠ requirement ⇒ BUG.
+   - Skill này đã TẬN DỤNG sẵn: /explore-website-requirements-by-flow (đi hết thao tác),
+     /ui-debug-agent (inspect DOM, locator), /generate-test-data (data xấu/biên),
+     /manual-testing-techniques (kỹ thuật test + Severity/Priority) — theo SKILL.md của nó.
+   - Xuất bug ra Excel mẫu 3 cột + báo cáo + evidence.
+
+# INPUT (đọc trước khi chạy)
+1) FILE REQUIREMENT (nguồn chân lý để đối chiếu):
+   requirements/requirements_dieu_phoi_ca.md
+   - Đưa file này cho /analyze-requirement-document ở bước (1).
+2) FILE MÔI TRƯỜNG:  prompt/Enviroment.txt
+   - Lấy: Link test (URL), Tài khoản (tk), Mật khẩu (mk). KHÔNG đọc `.env` để lấy credential.
+   - Module Điều phối ca: https://table1.klkim.com/v2/order/cashier/shift
+     (nếu Enviroment.txt để URL khác → ưu tiên URL trong Enviroment.txt).
+
+# PHẠM VI (Scope)
+- [ ] Test TẤT CẢ requirement của module Điều phối ca, HOẶC
+- [ ] Lọc theo:  nhóm chức năng = [VD: Tạo/sửa ca, Gán nhân viên, Đổi ca, Phân quyền] / mã FR = [...]
+> Requirement nhiều (> 15 mục) hoặc chưa rõ scope → DỪNG hỏi user trước khi chạy.
+
+# TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
+- CHỈ chạy trên môi trường TEST/STAGING bằng tài khoản trong Enviroment.txt.
+- Cần Playwright/Browser MCP (hoặc Chrome extension "Claude in Chrome") để tương tác DOM thật.
+  Chưa có engine nào kết nối → DỪNG, báo user. TUYỆT ĐỐI KHÔNG đoán locator / không suy diễn kết quả.
+- Skill có thể tạo/sửa/xóa dữ liệu thật khi test sâu (tạo ca, gán/bỏ gán, xóa ca...) →
+  DỪNG xác nhận user 1 lần trước khi bắt đầu; chỉ TEST/STAGING; ghi log mọi thao tác phá hủy.
+- CAPTCHA/OTP/2FA không tự vượt được → nhờ user thao tác, hoặc đánh mục đó BLOCKED kèm lý do.
+
+# NGUYÊN TẮC PHÁT HIỆN & GHI BUG
+- Lỗi = hành vi thật MÂU THUẪN requirement (mã FR/BR). Hành vi ngoài requirement nhưng rõ ràng
+  vô lý (crash, mất data, lỗi SQL...) → BUG nghi ngờ, đánh dấu "cần PO xác nhận". KHÔNG bịa, KHÔNG auto-heal.
+- Mỗi bug 1 dòng, viết CHI TIẾT TỪNG BƯỚC: bắt đầu từ điểm xuất phát (đăng nhập → màn hình →
+  thao tác), nêu đúng tên nút/field/phím tắt + dữ liệu cụ thể, đủ để dev làm theo y hệt.
+- Cột "Bug" theo format: các bước đánh số → "→ Lỗi hiện tại:" → "→ Kết quả mong đợi:" (hoặc "→ Cần fix:").
+- Chụp evidence tại bước lỗi; đánh giá Severity/Priority ghi trong report.md.
+
+# OUTPUT (Tiếng Việt)
+- Excel bug (mẫu 3 cột id | web/flutter | Bug) → đặt trong folder Result/:
+  Result/bugs_dieu_phoi_ca_<YYYYMMDD>.xlsx
+- Báo cáo tổng hợp: run/report.md (summary theo Severity/nhóm chức năng + chi tiết + evidence + limitations).
+- Evidence screenshots: run/evidence/
+- Nhật ký tiến độ + log thao tác phá hủy: run/task.md ; bản đồ coverage: run/coverage.md
+- Tóm tắt cuối cho user: tổng N bug (theo mức Severity) + requirement nào FAIL + mục BLOCKED & lý do
+  + điểm cần PO xác nhận + đường dẫn Excel trong Result/ và run/report.md.

@@ -1,0 +1,623 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - link [ref=e8] [cursor=pointer]:
+      - /url: https://table1.klkim.com/v2/dashboard
+      - img "ERP" [ref=e9]
+    - generic [ref=e11]:
+      - link [ref=e13] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier
+        - paragraph [ref=e14]: Trang chủ
+      - link [ref=e16] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/history
+        - paragraph [ref=e17]: Lịch sử
+      - link [ref=e19] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/order-booking
+        - paragraph [ref=e20]: Đặt bàn
+      - link [ref=e22] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/shift
+        - paragraph [ref=e23]: Điều phối ca
+      - link [ref=e25] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/income-expense
+        - paragraph [ref=e26]: Thu chi
+      - link [ref=e28] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/return-order
+        - paragraph [ref=e29]: Trả hàng
+      - link [ref=e31] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/crm/customers
+        - paragraph [ref=e32]: CRM
+    - generic [ref=e33]:
+      - button [ref=e36] [cursor=pointer]:
+        - img "vi" [ref=e37]
+      - generic [ref=e40] [cursor=pointer]:
+        - generic [ref=e41]: Admin master
+        - generic [ref=e42]: 
+      - generic [ref=e43]:
+        - button "17" [ref=e63] [cursor=pointer]:
+          - generic [ref=e45]: 
+        - text:                   
+      - button "" [ref=e49] [cursor=pointer]
+      - generic [ref=e51] [cursor=pointer]: 
+  - generic [ref=e59]:
+    - generic [ref=e64]:
+      - generic [ref=e1026]:
+        - generic [ref=e1027] [cursor=pointer]:
+          - generic [ref=e1028]: "Nhân viên: Admin master"
+          - generic [ref=e1030]: "Người mở: Admin master"
+          - generic [ref=e1032]: "Mã ca: SCR00000008CN2"
+          - generic [ref=e1034]: "Giờ mở ca: 15-07-2026 21:06:22"
+          - generic [ref=e1036]: "Giờ đóng ca: Đang mở"
+        - generic [ref=e1038]:
+          - generic [ref=e1039]: Lịch sử ca
+          - generic [ref=e1042]:
+            - generic [ref=e1044]:
+              - generic [ref=e1045]: Thời gian
+              - textbox "Chọn thời gian" [ref=e1047]: 01-06-2026 00:00 - 15-07-2026 23:59
+            - generic [ref=e1049]:
+              - generic [ref=e1050]: Nhân viên
+              - combobox [ref=e1052]:
+                - option "Tất cả" [selected]
+                - option "Admin master"
+                - option "Võ Văn Tấn Phú"
+                - option "cashier"
+          - generic [ref=e1053]:
+            - generic [ref=e1054] [cursor=pointer]:
+              - generic [ref=e1055]: "Nhân viên: Admin master"
+              - generic [ref=e1057]: "Người mở: Admin master"
+              - generic [ref=e1059]: "Mã ca: SCR00000007CN2"
+              - generic [ref=e1061]: "Giờ mở ca: 13-07-2026 13:17:20"
+              - generic [ref=e1063]: "Giờ đóng ca: 15-07-2026 21:05:23"
+              - generic [ref=e1065]:
+                - generic [ref=e1066]: "Tổng tiền mặt: 500,000 đ"
+                - generic [ref=e1068]:
+                  - button "In phiếu" [ref=e1069]
+                  - button "Chi tiết ca" [ref=e1070]
+            - generic [ref=e1071] [cursor=pointer]:
+              - generic [ref=e1072]: "Nhân viên: Admin master"
+              - generic [ref=e1074]: "Người mở: Admin master"
+              - generic [ref=e1076]: "Mã ca: SCR00000005CN2"
+              - generic [ref=e1078]: "Giờ mở ca: 06-07-2026 08:41:47"
+              - generic [ref=e1080]: "Giờ đóng ca: 13-07-2026 13:16:25"
+              - generic [ref=e1082]:
+                - generic [ref=e1083]: "Tổng tiền mặt: 0 đ"
+                - generic [ref=e1085]:
+                  - button "In phiếu" [ref=e1086]
+                  - button "Chi tiết ca" [ref=e1087]
+            - generic [ref=e1088] [cursor=pointer]:
+              - generic [ref=e1089]: "Nhân viên: Võ Văn Tấn Phú"
+              - generic [ref=e1091]: "Người mở: Võ Văn Tấn Phú"
+              - generic [ref=e1093]: "Mã ca: SCR00000004CN2"
+              - generic [ref=e1095]: "Giờ mở ca: 05-07-2026 11:32:58"
+              - generic [ref=e1097]: "Giờ đóng ca: 06-07-2026 02:27:39"
+              - generic [ref=e1099]:
+                - generic [ref=e1100]: "Tổng tiền mặt: 17,796,446 đ"
+                - generic [ref=e1102]:
+                  - button "In phiếu" [ref=e1103]
+                  - button "Chi tiết ca" [ref=e1104]
+            - generic [ref=e1105] [cursor=pointer]:
+              - generic [ref=e1106]: "Nhân viên: Võ Văn Tấn Phú"
+              - generic [ref=e1108]: "Người mở: Võ Văn Tấn Phú"
+              - generic [ref=e1110]: "Mã ca: SCR00000003CN2"
+              - generic [ref=e1112]: "Giờ mở ca: 05-07-2026 10:48:33"
+              - generic [ref=e1114]: "Giờ đóng ca: 05-07-2026 11:32:38"
+              - generic [ref=e1116]:
+                - generic [ref=e1117]: "Tổng tiền mặt: 1,000,000 đ"
+                - generic [ref=e1119]:
+                  - button "In phiếu" [ref=e1120]
+                  - button "Chi tiết ca" [ref=e1121]
+      - navigation [ref=e1123]:
+        - list [ref=e1124]:
+          - listitem "pagination.previous" [ref=e1125]:
+            - generic: ‹
+          - listitem [ref=e1126]:
+            - generic [ref=e1127]: "1"
+          - listitem [ref=e1128]:
+            - link "2" [ref=e1129] [cursor=pointer]:
+              - /url: https://table1.klkim.com/v2/order/cashier/shift/list?page=2
+          - listitem [ref=e1130]:
+            - link "pagination.next" [ref=e1131] [cursor=pointer]:
+              - /url: https://table1.klkim.com/v2/order/cashier/shift/list?page=2
+              - text: ›
+    - generic [ref=e1238]:
+      - generic [ref=e1239]:
+        - generic [ref=e1242]:
+          - strong [ref=e1243]: 05-07-2026 11:32:58
+          - generic [ref=e1244]:
+            - generic [ref=e1245]: 
+            - text: "Nhân viên:"
+            - strong [ref=e1246]: Võ Văn Tấn Phú
+        - generic [ref=e1247]: "Tiền mặt đầu ca : 1,000,000đ"
+        - generic [ref=e1249]:
+          - generic [ref=e1250]:
+            - generic [ref=e1251]:
+              - generic [ref=e1252]: Bán hàng
+              - generic [ref=e1255]:
+                - button [ref=e1256] [cursor=pointer]
+                - text: 
+            - generic [ref=e1258]:
+              - generic [ref=e1259]:
+                - generic [ref=e1260]: Đơn hàng
+                - generic [ref=e1261]: "21"
+              - generic [ref=e1262]:
+                - generic [ref=e1263]: Tổng tiền bán hàng
+                - generic [ref=e1264]: 20,288,477đ
+          - generic [ref=e1265]:
+            - generic [ref=e1266]:
+              - generic [ref=e1267]: Trả hàng
+              - button [ref=e1271] [cursor=pointer]
+            - generic [ref=e1274]:
+              - generic [ref=e1275]: Tiền mặt
+              - generic [ref=e1276]: 0đ
+          - generic [ref=e1277]:
+            - generic [ref=e1278]:
+              - generic [ref=e1279]: Phiếu thu
+              - button [ref=e1283] [cursor=pointer]
+            - generic [ref=e1286]:
+              - generic [ref=e1287]: Tiền mặt
+              - generic [ref=e1288]: 16,796,446đ
+          - generic [ref=e1289]:
+            - generic [ref=e1290]:
+              - generic [ref=e1291]: Phiếu chi
+              - button [ref=e1295] [cursor=pointer]
+            - generic [ref=e1298]:
+              - generic [ref=e1299]: Tiền mặt
+              - generic [ref=e1300]: 0đ
+      - generic [ref=e1304]:
+        - generic [ref=e1305]: "Tổng tiền mặt trong ca :"
+        - generic [ref=e1306]: 16,796,446đ
+      - generic [ref=e1307]:
+        - generic [ref=e1309]:
+          - generic [ref=e1310]: Giao dịch trong ca
+          - paragraph [ref=e1311]:
+            - text: "Tổng giao dịch :"
+            - strong [ref=e1312]: "43"
+        - generic [ref=e1313]:
+          - button "Tất cả" [ref=e1315] [cursor=pointer]
+          - textbox "Tìm mã, chú thích" [ref=e1316]
+          - generic [ref=e1317]:
+            - generic [ref=e1318]:
+              - checkbox "Hoàn thành" [checked] [ref=e1319]
+              - generic [ref=e1320]: Hoàn thành
+            - generic [ref=e1321]:
+              - checkbox "Đã hủy" [checked] [ref=e1322]
+              - generic [ref=e1323]: Đã hủy
+        - table [ref=e1325] [cursor=pointer]:
+          - rowgroup [ref=e1326]:
+            - row [ref=e1327]:
+              - columnheader "STT" [ref=e1328]
+              - columnheader "Mã chứng từ" [ref=e1329]
+              - columnheader "Loại giao dịch" [ref=e1330]
+              - columnheader "Số tiền" [ref=e1331]
+              - columnheader "Phương thức thanh toán" [ref=e1332]
+              - columnheader "Trạng thái" [ref=e1333]
+          - rowgroup [ref=e1334]:
+            - row [ref=e1335]:
+              - cell "1" [ref=e1336]
+              - cell "PC00000073CN2" [ref=e1337]
+              - cell "Phiếu thu" [ref=e1338]
+              - cell "89,100đ" [ref=e1339]
+              - cell [ref=e1340]:
+                - paragraph [ref=e1341]: Tiền mặt (89,100đ)
+                - paragraph
+              - cell [ref=e1342]:
+                - strong [ref=e1343]: Đã thanh toán
+            - row [ref=e1344]:
+              - cell "2" [ref=e1345]
+              - cell "POS00000074CN2" [ref=e1346]
+              - cell "Phiếu bán hàng" [ref=e1347]
+              - cell "89,100đ" [ref=e1348]
+              - cell [ref=e1349]:
+                - paragraph [ref=e1350]: Tiền mặt (89,100đ)
+                - paragraph
+              - cell [ref=e1351]:
+                - strong [ref=e1352]: Đã thanh toán
+            - row [ref=e1353]:
+              - cell "3" [ref=e1354]
+              - cell "PC00000072CN2" [ref=e1355]
+              - cell "Phiếu thu" [ref=e1356]
+              - cell "1,363,723đ" [ref=e1357]
+              - cell [ref=e1358]:
+                - paragraph [ref=e1359]: Tiền mặt (1,363,723đ)
+                - paragraph
+              - cell [ref=e1360]:
+                - strong [ref=e1361]: Đã thanh toán
+            - row [ref=e1362]:
+              - cell "4" [ref=e1363]
+              - cell "POS00000072CN2" [ref=e1364]
+              - cell "Phiếu bán hàng" [ref=e1365]
+              - cell "1,363,723đ" [ref=e1366]
+              - cell [ref=e1367]:
+                - paragraph [ref=e1368]: Tiền mặt (1,363,723đ)
+                - paragraph
+              - cell [ref=e1369]:
+                - strong [ref=e1370]: Đã thanh toán
+            - row [ref=e1371]:
+              - cell "5" [ref=e1372]
+              - cell "PC00000071CN2" [ref=e1373]
+              - cell "Phiếu thu" [ref=e1374]
+              - cell "157,300đ" [ref=e1375]
+              - cell [ref=e1376]:
+                - paragraph [ref=e1377]: Tiền mặt (157,300đ)
+                - paragraph
+              - cell [ref=e1378]:
+                - strong [ref=e1379]: Đã thanh toán
+            - row [ref=e1380]:
+              - cell "6" [ref=e1381]
+              - cell "POS00000076CN2" [ref=e1382]
+              - cell "Phiếu bán hàng" [ref=e1383]
+              - cell "157,300đ" [ref=e1384]
+              - cell [ref=e1385]:
+                - paragraph [ref=e1386]: Tiền mặt (157,300đ)
+                - paragraph
+              - cell [ref=e1387]:
+                - strong [ref=e1388]: Đã thanh toán
+            - row [ref=e1389]:
+              - cell "7" [ref=e1390]
+              - cell "POS00000075CN2" [ref=e1391]
+              - cell "Phiếu bán hàng" [ref=e1392]
+              - cell "45,000đ" [ref=e1393]
+              - cell [ref=e1394]:
+                - paragraph [ref=e1395]: Tiền mặt (45,000đ)
+                - paragraph
+              - cell [ref=e1396]:
+                - strong [ref=e1397]: Đã thanh toán
+            - row [ref=e1398]:
+              - cell "8" [ref=e1399]
+              - cell "PC00000070CN2" [ref=e1400]
+              - cell "Phiếu thu" [ref=e1401]
+              - cell "45,000đ" [ref=e1402]
+              - cell [ref=e1403]:
+                - paragraph [ref=e1404]: Tiền mặt (45,000đ)
+                - paragraph
+              - cell [ref=e1405]:
+                - strong [ref=e1406]: Đã thanh toán
+            - row [ref=e1407]:
+              - cell "9" [ref=e1408]
+              - cell "PC00000069CN2" [ref=e1409]
+              - cell "Phiếu thu" [ref=e1410]
+              - cell "1,477,623đ" [ref=e1411]
+              - cell [ref=e1412]:
+                - paragraph [ref=e1413]: Tiền mặt (1,477,623đ)
+                - paragraph
+              - cell [ref=e1414]:
+                - strong [ref=e1415]: Đã thanh toán
+            - row [ref=e1416]:
+              - cell "10" [ref=e1417]
+              - cell "POS00000071CN2" [ref=e1418]
+              - cell "Phiếu bán hàng" [ref=e1419]
+              - cell "1,477,623đ" [ref=e1420]
+              - cell [ref=e1421]:
+                - paragraph [ref=e1422]: Tiền mặt (1,477,623đ)
+                - paragraph
+              - cell [ref=e1423]:
+                - strong [ref=e1424]: Đã thanh toán
+            - row [ref=e1425]:
+              - cell "11" [ref=e1426]
+              - cell "PC00000068CN2" [ref=e1427]
+              - cell "Phiếu thu" [ref=e1428]
+              - cell "555,960đ" [ref=e1429]
+              - cell [ref=e1430]:
+                - paragraph [ref=e1431]: Tiền mặt (555,960đ)
+                - paragraph
+              - cell [ref=e1432]:
+                - strong [ref=e1433]: Đã thanh toán
+            - row [ref=e1434]:
+              - cell "12" [ref=e1435]
+              - cell "POS00000058CN2" [ref=e1436]
+              - cell "Phiếu bán hàng" [ref=e1437]
+              - cell "555,960đ" [ref=e1438]
+              - cell [ref=e1439]:
+                - paragraph [ref=e1440]: Tiền mặt (555,960đ)
+                - paragraph
+              - cell [ref=e1441]:
+                - strong [ref=e1442]: Đã thanh toán
+            - row [ref=e1443]:
+              - cell "13" [ref=e1444]
+              - cell "POS00000059CN2" [ref=e1445]
+              - cell "Phiếu bán hàng" [ref=e1446]
+              - cell "1,092,726đ" [ref=e1447]
+              - cell [ref=e1448]:
+                - paragraph [ref=e1449]: Tiền mặt (1,092,726đ)
+                - paragraph
+              - cell [ref=e1450]:
+                - strong [ref=e1451]: Đã thanh toán
+            - row [ref=e1452]:
+              - cell "14" [ref=e1453]
+              - cell "PC00000067CN2" [ref=e1454]
+              - cell "Phiếu thu" [ref=e1455]
+              - cell "1,092,726đ" [ref=e1456]
+              - cell [ref=e1457]:
+                - paragraph [ref=e1458]: Tiền mặt (1,092,726đ)
+                - paragraph
+              - cell [ref=e1459]:
+                - strong [ref=e1460]: Đã thanh toán
+            - row [ref=e1461]:
+              - cell "15" [ref=e1462]
+              - cell "PC00000066CN2" [ref=e1463]
+              - cell "Phiếu thu" [ref=e1464]
+              - cell "24,200đ" [ref=e1465]
+              - cell [ref=e1466]:
+                - paragraph [ref=e1467]: Tiền mặt (24,200đ)
+                - paragraph
+              - cell [ref=e1468]:
+                - strong [ref=e1469]: Đã thanh toán
+            - row [ref=e1470]:
+              - cell "16" [ref=e1471]
+              - cell "POS00000073CN2" [ref=e1472]
+              - cell "Phiếu bán hàng" [ref=e1473]
+              - cell "24,200đ" [ref=e1474]
+              - cell [ref=e1475]:
+                - paragraph [ref=e1476]: Tiền mặt (24,200đ)
+                - paragraph
+              - cell [ref=e1477]:
+                - strong [ref=e1478]: Đã thanh toán
+            - row [ref=e1479]:
+              - cell "17" [ref=e1480]
+              - cell "PC00000065CN2" [ref=e1481]
+              - cell "Phiếu thu" [ref=e1482]
+              - cell "1,879,265đ" [ref=e1483]
+              - cell [ref=e1484]:
+                - paragraph [ref=e1485]: Tiền mặt (1,879,265đ)
+                - paragraph
+              - cell [ref=e1486]:
+                - strong [ref=e1487]: Đã thanh toán
+            - row [ref=e1488]:
+              - cell "18" [ref=e1489]
+              - cell "POS00000064CN2" [ref=e1490]
+              - cell "Phiếu bán hàng" [ref=e1491]
+              - cell "1,879,265đ" [ref=e1492]
+              - cell [ref=e1493]:
+                - paragraph [ref=e1494]: Tiền mặt (1,879,265đ)
+                - paragraph
+              - cell [ref=e1495]:
+                - strong [ref=e1496]: Đã thanh toán
+            - row [ref=e1497]:
+              - cell "19" [ref=e1498]
+              - cell "PC00000064CN2" [ref=e1499]
+              - cell "Phiếu thu" [ref=e1500]
+              - cell "1,643,900đ" [ref=e1501]
+              - cell [ref=e1502]:
+                - paragraph [ref=e1503]: Tiền mặt (1,643,900đ)
+                - paragraph
+              - cell [ref=e1504]:
+                - strong [ref=e1505]: Đã thanh toán
+            - row [ref=e1506]:
+              - cell "20" [ref=e1507]
+              - cell "POS00000061CN2" [ref=e1508]
+              - cell "Phiếu bán hàng" [ref=e1509]
+              - cell "1,643,900đ" [ref=e1510]
+              - cell [ref=e1511]:
+                - paragraph [ref=e1512]: Tiền mặt (1,643,900đ)
+                - paragraph
+              - cell [ref=e1513]:
+                - strong [ref=e1514]: Đã thanh toán
+            - row [ref=e1515]:
+              - cell "21" [ref=e1516]
+              - cell "PC00000063CN2" [ref=e1517]
+              - cell "Phiếu thu" [ref=e1518]
+              - cell "645,626đ" [ref=e1519]
+              - cell [ref=e1520]:
+                - paragraph [ref=e1521]: Tiền mặt (645,626đ)
+                - paragraph
+              - cell [ref=e1522]:
+                - strong [ref=e1523]: Đã thanh toán
+            - row [ref=e1524]:
+              - cell "22" [ref=e1525]
+              - cell "POS00000069CN2" [ref=e1526]
+              - cell "Phiếu bán hàng" [ref=e1527]
+              - cell "645,626đ" [ref=e1528]
+              - cell [ref=e1529]:
+                - paragraph [ref=e1530]: Tiền mặt (645,626đ)
+                - paragraph
+              - cell [ref=e1531]:
+                - strong [ref=e1532]: Đã thanh toán
+            - row [ref=e1533]:
+              - cell "23" [ref=e1534]
+              - cell "POS00000056CN2" [ref=e1535]
+              - cell "Phiếu bán hàng" [ref=e1536]
+              - cell "1,940,159đ" [ref=e1537]
+              - cell [ref=e1538]:
+                - paragraph [ref=e1539]: Tiền mặt (1,940,159đ)
+                - paragraph
+              - cell [ref=e1540]:
+                - strong [ref=e1541]: Đã thanh toán
+            - row [ref=e1542]:
+              - cell "24" [ref=e1543]
+              - cell "PC00000062CN2" [ref=e1544]
+              - cell "Phiếu thu" [ref=e1545]
+              - cell "1,940,159đ" [ref=e1546]
+              - cell [ref=e1547]:
+                - paragraph [ref=e1548]: Tiền mặt (1,940,159đ)
+                - paragraph
+              - cell [ref=e1549]:
+                - strong [ref=e1550]: Đã thanh toán
+            - row [ref=e1551]:
+              - cell "25" [ref=e1552]
+              - cell "POS00000063CN2" [ref=e1553]
+              - cell "Phiếu bán hàng" [ref=e1554]
+              - cell "1,334,381đ" [ref=e1555]
+              - cell [ref=e1556]:
+                - paragraph [ref=e1557]: Tiền mặt (1,334,381đ)
+                - paragraph
+              - cell [ref=e1558]:
+                - strong [ref=e1559]: Đã thanh toán
+            - row [ref=e1560]:
+              - cell "26" [ref=e1561]
+              - cell "PC00000061CN2" [ref=e1562]
+              - cell "Phiếu thu" [ref=e1563]
+              - cell "1,334,381đ" [ref=e1564]
+              - cell [ref=e1565]:
+                - paragraph [ref=e1566]: Tiền mặt (1,334,381đ)
+                - paragraph
+              - cell [ref=e1567]:
+                - strong [ref=e1568]: Đã thanh toán
+            - row [ref=e1569]:
+              - cell "27" [ref=e1570]
+              - cell "PC00000060CN2" [ref=e1571]
+              - cell "Phiếu thu" [ref=e1572]
+              - cell "1,596,929đ" [ref=e1573]
+              - cell [ref=e1574]:
+                - paragraph [ref=e1575]: Tiền mặt (1,596,929đ)
+                - paragraph
+              - cell [ref=e1576]:
+                - strong [ref=e1577]: Đã thanh toán
+            - row [ref=e1578]:
+              - cell "28" [ref=e1579]
+              - cell "POS00000070CN2" [ref=e1580]
+              - cell "Phiếu bán hàng" [ref=e1581]
+              - cell "1,596,929đ" [ref=e1582]
+              - cell [ref=e1583]:
+                - paragraph [ref=e1584]: Tiền mặt (1,596,929đ)
+                - paragraph
+              - cell [ref=e1585]:
+                - strong [ref=e1586]: Đã thanh toán
+            - row [ref=e1587]:
+              - cell "29" [ref=e1588]
+              - cell "PC00000059CN2" [ref=e1589]
+              - cell "Phiếu thu" [ref=e1590]
+              - cell "1,389,138đ" [ref=e1591]
+              - cell [ref=e1592]:
+                - paragraph [ref=e1593]: Tiền mặt (1,389,138đ)
+                - paragraph
+              - cell [ref=e1594]:
+                - strong [ref=e1595]: Đã thanh toán
+            - row [ref=e1596]:
+              - cell "30" [ref=e1597]
+              - cell "POS00000068CN2" [ref=e1598]
+              - cell "Phiếu bán hàng" [ref=e1599]
+              - cell "1,389,138đ" [ref=e1600]
+              - cell [ref=e1601]:
+                - paragraph [ref=e1602]: Tiền mặt (1,389,138đ)
+                - paragraph
+              - cell [ref=e1603]:
+                - strong [ref=e1604]: Đã thanh toán
+            - row [ref=e1605]:
+              - cell "31" [ref=e1606]
+              - cell "PC00000058CN2" [ref=e1607]
+              - cell "Phiếu thu" [ref=e1608]
+              - cell "179,928đ" [ref=e1609]
+              - cell [ref=e1610]:
+                - paragraph [ref=e1611]: Tiền mặt (179,928đ)
+                - paragraph
+              - cell [ref=e1612]:
+                - strong [ref=e1613]: Đã thanh toán
+            - row [ref=e1614]:
+              - cell "32" [ref=e1615]
+              - cell "POS00000053CN2" [ref=e1616]
+              - cell "Phiếu bán hàng" [ref=e1617]
+              - cell "179,928đ" [ref=e1618]
+              - cell [ref=e1619]:
+                - paragraph [ref=e1620]: Tiền mặt (179,928đ)
+                - paragraph
+              - cell [ref=e1621]:
+                - strong [ref=e1622]: Đã thanh toán
+            - row [ref=e1623]:
+              - cell "33" [ref=e1624]
+              - cell "PC00000057CN2" [ref=e1625]
+              - cell "Phiếu thu" [ref=e1626]
+              - cell "155,142đ" [ref=e1627]
+              - cell [ref=e1628]:
+                - paragraph [ref=e1629]: Tiền mặt (155,142đ)
+                - paragraph
+              - cell [ref=e1630]:
+                - strong [ref=e1631]: Đã thanh toán
+            - row [ref=e1632]:
+              - cell "34" [ref=e1633]
+              - cell "POS00000067CN2" [ref=e1634]
+              - cell "Phiếu bán hàng" [ref=e1635]
+              - cell "155,142đ" [ref=e1636]
+              - cell [ref=e1637]:
+                - paragraph [ref=e1638]: Tiền mặt (155,142đ)
+                - paragraph
+              - cell [ref=e1639]:
+                - strong [ref=e1640]: Đã thanh toán
+            - row [ref=e1641]:
+              - cell "35" [ref=e1642]
+              - cell "POS00000054CN2" [ref=e1643]
+              - cell "Phiếu bán hàng" [ref=e1644]
+              - cell "2,519,179đ" [ref=e1645]
+              - cell [ref=e1646]:
+                - paragraph [ref=e1647]: Chuyển khoản (2,519,179đ)
+                - paragraph
+              - cell [ref=e1648]:
+                - strong [ref=e1649]: Đã thanh toán
+            - row [ref=e1650]:
+              - cell "36" [ref=e1651]
+              - cell "PC00000056CN2" [ref=e1652]
+              - cell "Phiếu thu" [ref=e1653]
+              - cell "2,519,179đ" [ref=e1654]
+              - cell [ref=e1655]:
+                - paragraph [ref=e1656]: Chuyển khoản (2,519,179đ)
+                - paragraph
+              - cell [ref=e1657]:
+                - strong [ref=e1658]: Đã thanh toán
+            - row [ref=e1659]:
+              - cell "37" [ref=e1660]
+              - cell "PC00000055CN2" [ref=e1661]
+              - cell "Phiếu thu" [ref=e1662]
+              - cell "369,036đ" [ref=e1663]
+              - cell [ref=e1664]:
+                - paragraph [ref=e1665]: Tiền mặt (369,036đ)
+                - paragraph
+              - cell [ref=e1666]:
+                - strong [ref=e1667]: Đã thanh toán
+            - row [ref=e1668]:
+              - cell "38" [ref=e1669]
+              - cell "PC00000054CN2" [ref=e1670]
+              - cell "Phiếu thu" [ref=e1671]
+              - cell "16,500đ" [ref=e1672]
+              - cell [ref=e1673]:
+                - paragraph [ref=e1674]: Chuyển khoản (16,500đ)
+                - paragraph
+              - cell [ref=e1675]:
+                - strong [ref=e1676]: Đã thanh toán
+            - row [ref=e1677]:
+              - cell "39" [ref=e1678]
+              - cell "POS00000052CN2" [ref=e1679]
+              - cell "Phiếu bán hàng" [ref=e1680]
+              - cell "16,500đ" [ref=e1681]
+              - cell [ref=e1682]:
+                - paragraph [ref=e1683]: Chuyển khoản (16,500đ)
+                - paragraph
+              - cell [ref=e1684]:
+                - strong [ref=e1685]: Đã thanh toán
+            - row [ref=e1686]:
+              - cell "40" [ref=e1687]
+              - cell "PC00000053CN2" [ref=e1688]
+              - cell "Phiếu thu" [ref=e1689]
+              - cell "1,325,388đ" [ref=e1690]
+              - cell [ref=e1691]:
+                - paragraph [ref=e1692]: Chuyển khoản (1,325,388đ)
+                - paragraph
+              - cell [ref=e1693]:
+                - strong [ref=e1694]: Đã thanh toán
+            - row [ref=e1695]:
+              - cell "41" [ref=e1696]
+              - cell "POS00000060CN2" [ref=e1697]
+              - cell "Phiếu bán hàng" [ref=e1698]
+              - cell "1,325,388đ" [ref=e1699]
+              - cell [ref=e1700]:
+                - paragraph [ref=e1701]: Chuyển khoản (1,325,388đ)
+                - paragraph
+              - cell [ref=e1702]:
+                - strong [ref=e1703]: Đã thanh toán
+            - row [ref=e1704]:
+              - cell "42" [ref=e1705]
+              - cell "POS00000057CN2" [ref=e1706]
+              - cell "Phiếu bán hàng" [ref=e1707]
+              - cell "857,310đ" [ref=e1708]
+              - cell [ref=e1709]:
+                - paragraph [ref=e1710]: Tiền mặt (857,310đ)
+                - paragraph
+              - cell [ref=e1711]:
+                - strong [ref=e1712]: Đã thanh toán
+            - row [ref=e1713]:
+              - cell "43" [ref=e1714]
+              - cell "PC00000052CN2" [ref=e1715]
+              - cell "Phiếu thu" [ref=e1716]
+              - cell "857,310đ" [ref=e1717]
+              - cell [ref=e1718]:
+                - paragraph [ref=e1719]: Tiền mặt (857,310đ)
+                - paragraph
+              - cell [ref=e1720]:
+                - strong [ref=e1721]: Đã thanh toán
+  - generic [ref=e61]: "© 2025 Nasys | Hỗ trợ: 090 750 1000"

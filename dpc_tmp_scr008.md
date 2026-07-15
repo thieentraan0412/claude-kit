@@ -1,0 +1,151 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e6]:
+    - link [ref=f1e8] [cursor=pointer]:
+      - /url: https://table1.klkim.com/v2/dashboard
+      - img "ERP" [ref=f1e9]
+    - generic [ref=f1e11]:
+      - link [ref=f1e13] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier
+        - paragraph [ref=f1e14]: Trang chủ
+      - link [ref=f1e16] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/history
+        - paragraph [ref=f1e17]: Lịch sử
+      - link [ref=f1e19] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/order-booking
+        - paragraph [ref=f1e20]: Đặt bàn
+      - link [ref=f1e22] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/shift
+        - paragraph [ref=f1e23]: Điều phối ca
+      - link [ref=f1e25] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/income-expense
+        - paragraph [ref=f1e26]: Thu chi
+      - link [ref=f1e28] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/return-order
+        - paragraph [ref=f1e29]: Trả hàng
+      - link [ref=f1e31] [cursor=pointer]:
+        - /url: https://table1.klkim.com/v2/order/cashier/crm/customers
+        - paragraph [ref=f1e32]: CRM
+    - generic [ref=f1e33]:
+      - button [ref=f1e36] [cursor=pointer]:
+        - img "vi" [ref=f1e37]
+      - generic [ref=f1e40] [cursor=pointer]:
+        - generic [ref=f1e41]: Admin master
+        - generic [ref=f1e42]: 
+      - generic [ref=f1e43]:
+        - button "17" [ref=f1e63] [cursor=pointer]:
+          - generic [ref=f1e45]: 
+        - text:                   
+      - button "" [ref=f1e49] [cursor=pointer]
+      - generic [ref=f1e51] [cursor=pointer]: 
+  - generic [ref=f1e59]:
+    - generic [ref=f1e65]:
+      - generic [ref=f1e66] [cursor=pointer]:
+        - generic [ref=f1e67]: "Nhân viên: Admin master"
+        - generic [ref=f1e69]: "Người mở: Admin master"
+        - generic [ref=f1e71]: "Mã ca: SCR00000008CN2"
+        - generic [ref=f1e73]: "Giờ mở ca: 15-07-2026 21:06:22"
+        - generic [ref=f1e75]: "Giờ đóng ca: Đang mở"
+      - generic [ref=f1e77]:
+        - generic [ref=f1e78]: Lịch sử ca
+        - generic [ref=f1e81]:
+          - generic [ref=f1e83]:
+            - generic [ref=f1e84]: Thời gian
+            - textbox "Chọn thời gian" [ref=f1e86]: 15-07-2026 00:00 - 15-07-2026 23:59
+          - generic [ref=f1e88]:
+            - generic [ref=f1e89]: Nhân viên
+            - combobox [ref=f1e91]:
+              - option "Tất cả" [selected]
+              - option "Admin master"
+              - option "Võ Văn Tấn Phú"
+              - option "cashier"
+        - generic [ref=f1e93] [cursor=pointer]:
+          - generic [ref=f1e94]: "Nhân viên: Admin master"
+          - generic [ref=f1e96]: "Người mở: Admin master"
+          - generic [ref=f1e98]: "Mã ca: SCR00000007CN2"
+          - generic [ref=f1e100]: "Giờ mở ca: 13-07-2026 13:17:20"
+          - generic [ref=f1e102]: "Giờ đóng ca: 15-07-2026 21:05:23"
+          - generic [ref=f1e104]:
+            - generic [ref=f1e105]: "Tổng tiền mặt: 500,000 đ"
+            - generic [ref=f1e107]:
+              - button "In phiếu" [ref=f1e108]
+              - button "Chi tiết ca" [ref=f1e109]
+    - generic [ref=f1e111]:
+      - generic [ref=f1e112]:
+        - generic [ref=f1e113]:
+          - generic [ref=f1e114]:
+            - generic [ref=f1e115]:
+              - strong [ref=f1e116]: 15-07-2026 21:06:22
+              - generic [ref=f1e117]:
+                - generic [ref=f1e118]: 
+                - text: "Nhân viên:"
+                - strong [ref=f1e119]: Admin master
+            - button "Đang mở" [ref=f1e121] [cursor=pointer]
+          - generic [ref=f1e122]:
+            - button "Đóng ca" [ref=f1e123] [cursor=pointer]
+            - button "Đóng và in phiếu" [ref=f1e126] [cursor=pointer]
+        - generic [ref=f1e130]: "Tiền mặt đầu ca : 500,000đ"
+        - generic [ref=f1e132]:
+          - generic [ref=f1e133]:
+            - generic [ref=f1e134]:
+              - generic [ref=f1e135]: Bán hàng
+              - generic [ref=f1e138]:
+                - button [ref=f1e139] [cursor=pointer]
+                - text: 
+            - generic [ref=f1e141]:
+              - generic [ref=f1e142]:
+                - generic [ref=f1e143]: Đơn hàng
+                - generic [ref=f1e144]: "0"
+              - generic [ref=f1e145]:
+                - generic [ref=f1e146]: Tổng tiền bán hàng
+                - generic [ref=f1e147]: 0đ
+          - generic [ref=f1e148]:
+            - generic [ref=f1e149]:
+              - generic [ref=f1e150]: Trả hàng
+              - button [ref=f1e154] [cursor=pointer]
+            - generic [ref=f1e157]:
+              - generic [ref=f1e158]: Tiền mặt
+              - generic [ref=f1e159]: 0đ
+          - generic [ref=f1e160]:
+            - generic [ref=f1e161]:
+              - generic [ref=f1e162]: Phiếu thu
+              - button [ref=f1e166] [cursor=pointer]
+            - generic [ref=f1e169]:
+              - generic [ref=f1e170]: Tiền mặt
+              - generic [ref=f1e171]: 0đ
+          - generic [ref=f1e172]:
+            - generic [ref=f1e173]:
+              - generic [ref=f1e174]: Phiếu chi
+              - button [ref=f1e178] [cursor=pointer]
+            - generic [ref=f1e181]:
+              - generic [ref=f1e182]: Tiền mặt
+              - generic [ref=f1e183]: 0đ
+      - generic [ref=f1e187]:
+        - generic [ref=f1e188]: "Tổng tiền mặt trong ca :"
+        - generic [ref=f1e189]: 0đ
+      - generic [ref=f1e190]:
+        - generic [ref=f1e192]:
+          - generic [ref=f1e193]: Giao dịch trong ca
+          - paragraph [ref=f1e194]:
+            - text: "Tổng giao dịch :"
+            - strong [ref=f1e195]: "0"
+        - generic [ref=f1e196]:
+          - button "Tất cả" [ref=f1e198] [cursor=pointer]
+          - textbox "Tìm mã, chú thích" [ref=f1e199]
+          - generic [ref=f1e200]:
+            - generic [ref=f1e201]:
+              - checkbox "Hoàn thành" [checked] [ref=f1e202]
+              - generic [ref=f1e203]: Hoàn thành
+            - generic [ref=f1e204]:
+              - checkbox "Đã hủy" [checked] [ref=f1e205]
+              - generic [ref=f1e206]: Đã hủy
+        - table [ref=f1e208] [cursor=pointer]:
+          - rowgroup [ref=f1e209]:
+            - row [ref=f1e210]:
+              - columnheader "STT" [ref=f1e211]
+              - columnheader "Mã chứng từ" [ref=f1e212]
+              - columnheader "Loại giao dịch" [ref=f1e213]
+              - columnheader "Số tiền" [ref=f1e214]
+              - columnheader "Phương thức thanh toán" [ref=f1e215]
+              - columnheader "Trạng thái" [ref=f1e216]
+          - rowgroup
+  - generic [ref=f1e61]: "© 2025 Nasys | Hỗ trợ: 090 750 1000"

@@ -1,15 +1,83 @@
-/generate-testcases-from-requirements
+# MỤC TIÊU
+Sinh bộ MANUAL TEST CASES chất lượng cao từ tài liệu Requirements đã có — đủ để tester
+thực thi ngay (tester-ready), bao phủ Positive / Negative / Boundary / Edge, validation
+riêng từng trường, kiểm thử phi chức năng & bảo mật cơ bản, và các luồng liên module.
 
-# CONTEXT
-- System type: [Web]
-- Module: [MENU]
-- Requirement: [requirements/requirements_menu.md]
-- Tài khoản test -> không giới hạn thao tác
+# KẾT HỢP 2 SKILL (Pipeline — theo đúng thứ tự)
+1) /manual-testing-techniques  → TẦNG PHƯƠNG PHÁP (biết CÁCH nghĩ).
+   - Nạp để CHỌN đúng kỹ thuật cho từng bài toán: EP, BVA, Decision Table,
+     State Transition, Pairwise, Use Case, Error Guessing (bảng chọn nhanh của skill).
+   - Dùng checklist chất lượng (UI/UX, Functional, Data, Compatibility, SECURITY)
+     làm "lưới an toàn" để không bỏ sót loại lỗi.
+   - Dùng chuẩn Bug Report (Severity vs Priority) khi mô tả Expected Result / mức ưu tiên.
+   - Skill này KHÔNG sinh TC — chỉ định hướng kỹ thuật & tiêu chuẩn.
+2) /generate-testcases-from-requirements  → TẦNG SẢN XUẤT (biết LÀM sản phẩm).
+   - Chạy Mode QUICK của /rbt-manual-testing (BẮT BUỘC nạp
+     .claude/skills/rbt-manual-testing/SKILL.md) để sinh TC thực tế.
+   - BẮT BUỘC áp dụng Bảng Field-Level Validation: liệt kê TỪNG input field và sinh
+     validation TC RIÊNG cho từng trường theo loại (Text/Email/Phone/Date/Number/
+     Dropdown/Checkbox/File/Password/Textarea). KHÔNG gộp nhiều trường vào 1 TC.
+   - Khi 2 skill mâu thuẫn định dạng: ưu tiên cấu trúc OUTPUT bên dưới của file này;
+     về CHIẾN LƯỢC/độ phủ thì tuân theo /manual-testing-techniques.
+
+# CONTEXT  (thay các giá trị dưới đây cho module thực tế của bạn)
+- System type: Web
+- Module: Return (Trả hàng — Thu ngân, ORDER)
+- Requirement: requirements/requirements_Return.md
+  # Nguồn chân lý. TC phải truy vết về các mã FR/BR/NFR trong tài liệu này;
+  # KHÔNG bịa chức năng ngoài tài liệu. Nếu tài liệu ghi "chưa kiểm chứng / do User cung
+  # cấp" (VD Mục 6b) → vẫn sinh TC nhưng đánh dấu Pre-Condition phụ thuộc & ghi chú.
+- Tài khoản test: không giới hạn thao tác (được phép tạo/sửa/xóa dữ liệu thật trên TEST)
+- Scope loại trừ (không sinh TC): [nếu có]
+
 # MODE
-# - FULL RBT: Quy trình 6 bước đầy đủ → thay bằng /generate-manual-testcases-rbt
+- Mặc định: QUICK (1 lượt, không chờ user giữa chừng) — phù hợp requirements đã rõ ràng.
+- TỰ ĐỘNG đề xuất chuyển FULL RBT (/generate-manual-testcases-rbt) và báo user nếu:
+  requirements mơ hồ cần Q&A · scope > 3 module · logic nhiều điều kiện chồng chéo ·
+  user yêu cầu Traceability Matrix / Risk Assessment đầy đủ.
+
+# YÊU CẦU THỰC THI (bám requirements + kỹ thuật)
+1) Phân rã theo LUỒNG trong requirements (mỗi FLOW-* → 1 nhóm TC), phủ:
+   - Happy Path (luồng chính, kết thúc thành công).
+   - Alternate/Negative Path (thiếu bắt buộc, sai định dạng, hủy, quay lại).
+   - Boundary (BVA) & Edge (double-submit, refresh giữa chừng, mất kết nối, data lớn).
+2) Field-Level Validation cho MỌI form: liệt kê danh sách field trước, rồi sinh TC
+   validation riêng từng field theo loại (mỗi trường ≥ các case: required, min/max,
+   sai định dạng, ký tự đặc biệt; Text/Textarea BẮT BUỘC có XSS `<script>alert(1)</script>`
+   và SQL injection `' OR 1=1--`).
+3) Áp kỹ thuật đúng ngữ cảnh và GHI RÕ kỹ thuật đã dùng ở cột "Kỹ thuật":
+   - Nhiều rule kết hợp → Decision Table.  - Có workflow/trạng thái → State Transition.
+   - Khoảng min/max, độ dài → BVA.  - Nhóm giá trị → EP.  - Đa tham số → Pairwise.
+4) Phi chức năng & bảo mật (từ checklist /manual-testing-techniques): sinh TC cho
+   Usability (thông báo lỗi rõ), Reliability (back/refresh/double-click),
+   Compatibility (nếu có yêu cầu), và Security cơ bản (XSS, SQLi, truy cập URL/không đúng
+   quyền, lộ thông tin). Chỉ sinh theo những gì requirements/hệ thống thể hiện — không bịa.
+5) Luồng LIÊN MODULE (nếu requirements có, VD Mục 6b của Return): sinh TC kiểm chứng
+   hiệu ứng chéo (VD: tạo phiếu trả → sinh phiếu chi ở Thu chi; +tồn kho theo lô ở
+   Admin/Thống kê & Quản lý chung; −doanh thu). Pre-Condition ghi rõ bước bán hàng ở
+   Trang chủ trước đó.
+6) Truy vết & ưu tiên:
+   - Mỗi TC map về mã yêu cầu (cột "Req ID": FR-*/BR-*/NFR-*).
+   - Priority suy từ MoSCoW của luồng: Must→Critical/High · Should→Medium · Could→Low.
+     Nghiệp vụ tiền/bảo mật/mất dữ liệu → nâng 1 bậc.
+7) Chất lượng nội dung: Test Steps đánh số, Expected Result đánh số tương ứng, Test Data
+   PHẢI cụ thể (VD: `Tên khách hàng = "QA Auto Test"`, không phải "tên hợp lệ").
+   1 TC = 1 mục tiêu kiểm thử.
 
 # OUTPUT FORMAT
-- Xuất kết quả ra file xlsx. (vd: testcases_`[module_name]`.xlsx)
-- Các cột bắt buộc:
-  TC ID, Module, Test Scenario, Pre-Condition, Test Steps, Test Data, Expected Result, Priority
-- Quy tắc TC ID: [DỰ_ÁN]_[MODULE]_TC_[SỐ] (Ví dụ: CRM_LOGIN_TC_001)
+- Ngôn ngữ: Tiếng Việt, chuyên nghiệp.
+- Sản phẩm chính: file Excel  testcases_[module_name].xlsx  (VD: testcases_Return.xlsx).
+  Đồng thời in bảng Markdown xem trước (nguồn để đối chiếu, không rút gọn/bỏ sót TC).
+- Cột BẮT BUỘC (đúng thứ tự):
+  TC ID | Module | Test Scenario | Pre-Condition | Test Steps | Test Data | Expected Result | Priority
+- Cột KHUYẾN NGHỊ thêm (truy vết & phương pháp): Req ID | Loại (Positive/Negative/Boundary/
+  Security/Non-functional/Integration) | Kỹ thuật (EP/BVA/Decision Table/State Transition/...)
+- Quy tắc TC ID: [DỰ_ÁN]_[MODULE]_TC_[SỐ]  (VD: NASYS_RETURN_TC_001).
+- Nếu quá nhiều TC → chia Part 1, Part 2 theo luồng và hỏi user trước khi tiếp.
+
+# DEFINITION OF DONE (tự kiểm trước khi bàn giao)
+- Mỗi FLOW-*/FR-*/BR-* trong requirements có ≥ 1 TC (không có yêu cầu "mồ côi").
+- Mỗi input field có bộ validation TC riêng; Text/Textarea có case XSS + SQLi.
+- Có đủ Positive + Negative + Boundary + Edge; có TC phi chức năng/bảo mật khi áp dụng.
+- Test Data cụ thể, Steps/Expected đánh số khớp nhau, Priority nhất quán với MoSCoW.
+- Xuất đúng file .xlsx với đủ cột; bảng Markdown khớp 100% với file xlsx.
