@@ -1,0 +1,268 @@
+- generic [ref=f2e3]:
+  - generic:
+    - generic:
+      - generic:
+        - group:
+          - generic:
+            - generic:
+              - generic:
+                - generic [ref=f2e872]: Home page Home page
+                - generic [ref=f2e873]: History History
+                - generic [ref=f2e874]: Shift Coordination Shift Coordination
+                - generic [ref=f2e875]: Cashbook Cashbook
+                - generic [ref=f2e876]: CRM CRM
+                - generic [ref=f2e877]: Reserved Table Reserved Table
+                - generic [ref=f2e878]: Return item Return item
+                - generic [ref=f2e879]: Menu Menu
+                - generic [ref=f2e880]: Admin master
+                - generic [ref=f2e881]: "14"
+                - generic [ref=f2e882]: Menu
+                - generic:
+                  - generic:
+                    - generic [ref=f2e883]: Menu list Tab 1 of 6
+                    - generic [ref=f2e884]: Product groups Tab 2 of 6
+                    - generic [ref=f2e885]: Attributes Tab 3 of 6
+                    - generic [ref=f2e886]: Units Tab 4 of 6
+                    - generic [ref=f2e887]: Taxes Tab 5 of 6
+                    - generic [ref=f2e888]: Commissions Tab 6 of 6
+                - generic [ref=f2e889]: Filters
+                - generic:
+                  - generic:
+                    - generic [ref=f2e890]: Branch
+                    - button "TESTER" [ref=f2e891]
+                    - generic [ref=f2e892]: By item
+                    - textbox "Search by name or code" [ref=f2e894]
+                    - generic [ref=f2e895]: By menu group
+                    - button "All groups" [ref=f2e896]
+                    - generic [ref=f2e897]: Status
+                    - button "All statuses" [ref=f2e898]
+                    - generic [ref=f2e899]: Product type
+                    - group "Goods sold":
+                      - checkbox [ref=f2e900]
+                    - group "Raw materials":
+                      - checkbox [ref=f2e901]
+                    - group "Processed goods":
+                      - checkbox [ref=f2e902]
+                - button "Refresh" [ref=f2e903]
+                - generic [ref=f2e904]: Add item Add item
+                - generic [ref=f2e905]: Advanced Advanced
+                - generic [ref=f2e906]: Menu list
+                - generic:
+                  - generic:
+                    - generic [ref=f2e1046]: No.
+                    - generic [ref=f2e1047]: Code
+                    - generic [ref=f2e1048]: Item name
+                    - generic [ref=f2e1049]: Group
+                    - generic [ref=f2e1050]: Product type
+                    - generic [ref=f2e1051]: VAT
+                    - generic [ref=f2e1052]: Unit
+                    - generic [ref=f2e1053]: Price
+                    - generic [ref=f2e1054]: Norm
+                    - generic [ref=f2e1055]: Status
+                    - generic [ref=f2e1056]: Actions
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - switch "Up 1 PRO00000221CN2 testorder Khai vị Goods sold 10 Lon 1.000.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1057]
+                                    - button [ref=f2e1058]
+                                    - button [ref=f2e1059]
+                                    - button [disabled] [ref=f2e1060]
+                                    - button [ref=f2e1061]
+                                    - button [disabled] [ref=f2e1062]
+                            - generic:
+                              - generic:
+                                - switch "Up 2 PRO00000219CN2 Thuốc 555 Việt Bia - Nước Ngọt - Thuốc Lá Goods sold 0 Gói 45.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1063]
+                                    - button [ref=f2e1064]
+                                    - button [ref=f2e1065]
+                                    - button [disabled] [ref=f2e1066]
+                                    - button [ref=f2e1067]
+                                    - button [disabled] [ref=f2e1068]
+                            - generic:
+                              - generic:
+                                - switch "Up 3 PRO00000218CN2 Thuốc Mèo Mi Bia - Nước Ngọt - Thuốc Lá Goods sold 0 Gói 25.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1069]
+                                    - button [ref=f2e1070]
+                                    - button [ref=f2e1071]
+                                    - button [disabled] [ref=f2e1072]
+                                    - button [ref=f2e1073]
+                                    - button [disabled] [ref=f2e1074]
+                            - generic:
+                              - generic:
+                                - switch "Up 4 PRO00000220CN2 Thuốc Esse Bia - Nước Ngọt - Thuốc Lá Goods sold 8 Kilogam 35.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1075]
+                                    - button [ref=f2e1076]
+                                    - button [ref=f2e1077]
+                                    - button [disabled] [ref=f2e1078]
+                                    - button [ref=f2e1079]
+                                    - button [disabled] [ref=f2e1080]
+                            - generic:
+                              - generic:
+                                - switch "Up 5 PRO00000217CN2 Thịt Món khác Goods sold 0 Phần 0 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1081]
+                                    - button [ref=f2e1082]
+                                    - button [ref=f2e1083]
+                                    - button [disabled] [ref=f2e1084]
+                                    - button [ref=f2e1085]
+                                    - button [disabled] [ref=f2e1086]
+                            - generic:
+                              - generic:
+                                - switch "Up 6 PRO00000216CN2 Hải sản Món khác Goods sold 0 Phần 0 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1087]
+                                    - button [ref=f2e1088]
+                                    - button [ref=f2e1089]
+                                    - button [disabled] [ref=f2e1090]
+                                    - button [ref=f2e1091]
+                                    - button [disabled] [ref=f2e1092]
+                            - generic:
+                              - generic:
+                                - switch "Up 7 PRO00000214CN2 Heineken bạc cao Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 24.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1093]
+                                    - button [ref=f2e1094]
+                                    - button [ref=f2e1095]
+                                    - button [disabled] [ref=f2e1096]
+                                    - button [ref=f2e1097]
+                                    - button [disabled] [ref=f2e1098]
+                            - generic:
+                              - generic:
+                                - switch "Up 8 PRO00000213CN2 Heineken bạc lùn Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 22.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1099]
+                                    - button [ref=f2e1100]
+                                    - button [ref=f2e1101]
+                                    - button [disabled] [ref=f2e1102]
+                                    - button [ref=f2e1103]
+                                    - button [disabled] [ref=f2e1104]
+                            - generic:
+                              - generic:
+                                - switch "Up 9 PRO00000212CN2 Bánh đa Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Bịch 25.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1105]
+                                    - button [ref=f2e1106]
+                                    - button [ref=f2e1107]
+                                    - button [disabled] [ref=f2e1108]
+                                    - button [ref=f2e1109]
+                                    - button [disabled] [ref=f2e1110]
+                            - generic:
+                              - generic:
+                                - switch "Up 10 PRO00000211CN2 Trái cây thập cẩm (Lớn) Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Phần 135.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1111]
+                                    - button [ref=f2e1112]
+                                    - button [ref=f2e1113]
+                                    - button [disabled] [ref=f2e1114]
+                                    - button [ref=f2e1115]
+                                    - button [disabled] [ref=f2e1116]
+                            - generic:
+                              - generic:
+                                - switch "Up 11 PRO00000210CN2 Trái cây thập cẩm Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Phần 65.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1117]
+                                    - button [ref=f2e1118]
+                                    - button [ref=f2e1119]
+                                    - button [disabled] [ref=f2e1120]
+                                    - button [ref=f2e1121]
+                                    - button [disabled] [ref=f2e1122]
+                            - generic:
+                              - generic:
+                                - switch "Up 12 PRO00000209CN2 Khăn lạnh Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Cái 5.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1123]
+                                    - button [ref=f2e1124]
+                                    - button [ref=f2e1125]
+                                    - button [disabled] [ref=f2e1126]
+                                    - button [ref=f2e1127]
+                                    - button [disabled] [ref=f2e1128]
+                            - generic:
+                              - generic:
+                                - switch "Up 13 PRO00000208CN2 Đậu phộng tỏi ớt Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Đĩa 20.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1129]
+                                    - button [ref=f2e1130]
+                                    - button [ref=f2e1131]
+                                    - button [disabled] [ref=f2e1132]
+                                    - button [ref=f2e1133]
+                                    - button [disabled] [ref=f2e1134]
+                            - generic:
+                              - generic:
+                                - switch "Up 14 PRO00000207CN2 Soda chanh Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 25.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1135]
+                                    - button [ref=f2e1136]
+                                    - button [ref=f2e1137]
+                                    - button [disabled] [ref=f2e1138]
+                                    - button [ref=f2e1139]
+                                    - button [disabled] [ref=f2e1140]
+                            - generic:
+                              - generic:
+                                - switch "Up 15 PRO00000206CN2 Sting Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 15.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1141]
+                                    - button [ref=f2e1142]
+                                    - button [ref=f2e1143]
+                                    - button [disabled] [ref=f2e1144]
+                                    - button [ref=f2e1145]
+                                    - button [disabled] [ref=f2e1146]
+                            - generic:
+                              - generic:
+                                - switch "Up 16 PRO00000215CN2 7up Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 15.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1147]
+                                    - button [ref=f2e1148]
+                                    - button [ref=f2e1149]
+                                    - button [disabled] [ref=f2e1150]
+                                    - button [ref=f2e1151]
+                                    - button [disabled] [ref=f2e1152]
+                            - generic:
+                              - generic:
+                                - switch "Up 17 PRO00000205CN2 Coca Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 15.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1153]
+                                    - button [ref=f2e1154]
+                                    - button [ref=f2e1155]
+                                    - button [disabled] [ref=f2e1156]
+                                    - button [ref=f2e1157]
+                                    - button [disabled] [ref=f2e1158]
+                            - generic:
+                              - generic:
+                                - switch "Up 18 PRO00000204CN2 Nước suối Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Chai 12.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1159]
+                                    - button [ref=f2e1160]
+                                    - button [ref=f2e1161]
+                                    - button [disabled] [ref=f2e1162]
+                                    - button [ref=f2e1163]
+                                    - button [disabled] [ref=f2e1164]
+                            - generic:
+                              - generic:
+                                - switch "Up 19 PRO00000203CN2 Sài Gòn Special Bia - Nước Ngọt - Thuốc Lá Goods sold 10 Lon 20.000 -" [checked]:
+                                  - generic:
+                                    - button [ref=f2e1165]
+                                    - button [ref=f2e1166]
+                                    - button [ref=f2e1167]
+                                    - button [disabled] [ref=f2e1168]
+                                    - button [ref=f2e1169]
+                                    - button [disabled] [ref=f2e1170]
+                - button "Previous" [disabled] [ref=f2e1032]
+                - button "Previous" [disabled] [ref=f2e1033]
+                - generic [ref=f2e1034]: "1"
+                - generic [ref=f2e1171]: "2"
+                - generic [ref=f2e1172]: …
+                - generic [ref=f2e1173]: "12"
+                - button "Next" [ref=f2e1038]
+                - generic [ref=f2e1039]: 221 records
+                - generic [ref=f2e1040]: Columns
+                - button "Next" [ref=f2e1041]
+                - generic [ref=f2e1042]: "©2026 OrderSys | Support: 090 750 1000"
+                - generic [ref=f2e1043]: Version 1.0.1+105

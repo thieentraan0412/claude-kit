@@ -1,0 +1,81 @@
+- generic [ref=f2e3] [cursor=pointer]:
+  - generic:
+    - generic:
+      - generic:
+        - group:
+          - generic:
+            - generic:
+              - generic:
+                - group "Add new item":
+                  - generic:
+                    - button [ref=f2e557]
+                    - generic [ref=f2e558]: Details Tab 1 of 3
+                    - generic [ref=f2e559]: Attributes Tab 2 of 3
+                    - generic [ref=f2e560]: Topping Tab 3 of 3
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic [ref=f2e631]: Auto code
+                                    - generic [ref=f2e632]: Bar/QR Code
+                                    - generic [ref=f2e633]: Product group
+                                    - textbox "Auto code" [ref=f2e635]
+                                    - textbox "Bar/QR Code" [ref=f2e637]
+                                    - button "Product group" [ref=f2e638]
+                                    - button "Pick image" [ref=f2e639]
+                                    - generic [ref=f2e640]: Product name *
+                                    - textbox [ref=f2e693]: AUTO_TEST_MENU_150726
+                                    - generic [ref=f2e643]: Sale price *
+                                    - textbox [ref=f2e694]: "12.000"
+                                    - generic [ref=f2e646]: Cost price
+                                    - textbox "Cost price" [ref=f2e648]
+                                    - radio "Goods sold" [checked] [ref=f2e649]
+                                    - radio "Raw materials" [ref=f2e650]
+                                    - generic [ref=f2e651]: Unit
+                                    - generic [ref=f2e652]: Lock usage group
+                                    - button "Unit" [ref=f2e653]
+                                    - generic [ref=f2e654]: Tax
+                                    - generic [ref=f2e655]: Branch *
+                                    - button "-- None --" [ref=f2e656]
+                                    - generic [ref=f2e657]: VAT (%)
+                                    - generic [ref=f2e658]: Item tags
+                                    - textbox "VAT (%)" [ref=f2e660]
+                                    - group "Status":
+                                      - switch [checked] [ref=f2e661]
+                                    - group "Print label":
+                                      - switch [ref=f2e662]
+                                    - group "Deduct stock":
+                                      - switch [ref=f2e663]
+                                    - group "Processed goods":
+                                      - switch [ref=f2e664]
+                                    - group "Notify kitchen":
+                                      - switch [checked] [ref=f2e665]
+                                    - group "Print summary":
+                                      - switch [checked] [ref=f2e666]
+                                    - group "Order via QR code":
+                                      - switch [checked] [ref=f2e667]
+                                    - group "TESTER"
+                                    - generic [ref=f2e669]: Lock usage group
+                                    - generic [ref=f2e670]: Min standard
+                                    - generic [ref=f2e671]: Max standard
+                                    - textbox "Min standard" [ref=f2e673]
+                                    - generic [ref=f2e674]: Product commission (%)
+                                    - textbox [ref=f2e676]
+                                    - checkbox [ref=f2e677]
+                                    - checkbox "Percent" [checked] [disabled] [ref=f2e678]
+                                    - checkbox "Amount" [disabled] [ref=f2e679]
+                                    - generic [ref=f2e680]: Nhân viên tư vấn
+                                    - textbox [ref=f2e682]
+                                    - checkbox [ref=f2e683]
+                                    - checkbox "Percent" [checked] [disabled] [ref=f2e684]
+                                    - checkbox "Amount" [disabled] [ref=f2e685]
+                                    - generic [ref=f2e686]: Nhân viên dịch vụ
+                                    - generic [ref=f2e687]: Description
+                                    - generic [ref=f2e688]: Item tags
+                                    - textbox "Max standard" [ref=f2e690]
+                                    - textbox "Description" [ref=f2e692]
+                    - button "Save" [active] [ref=f2e623]
