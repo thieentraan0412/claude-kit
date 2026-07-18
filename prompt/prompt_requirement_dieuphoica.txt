@@ -34,7 +34,7 @@ thao tác/luồng (kể cả luồng đa trang), rồi sinh tài liệu Requirem
   #   - Duyệt/từ chối yêu cầu đổi ca; trạng thái ca (nháp→công bố→khóa).
   #   - Phân quyền (Manager điều phối vs nhân viên chỉ xem ca của mình).
 - Đường đi tới module: [VD: Vào Manager → Nhân sự → Điều phối ca] (bỏ trống nếu là trang đăng nhập)
-- Thông tin đăng nhập: thientester/admin/12345678  (tài khoản TEST, được phép thao tác)
+- Thông tin đăng nhập: account1/admin/12345678  (tài khoản TEST, được phép thao tác)
 - Scope loại trừ (không đụng tới): [nếu có]
 
 # TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)

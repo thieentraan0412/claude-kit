@@ -1,0 +1,93 @@
+# MỤC TIÊU
+Tự KHÁM PHÁ và dùng website như một QA tester thật (exploratory bug hunting):
+đọc REQUIREMENT (requirements/requirements_dieu_phoi_ca.md) làm nguồn chân lý, đối chiếu hành vi thật trên browser
+với requirement, chủ động phá bằng data xấu/biên, rồi viết MỖI LỖI thành một bug CHI TIẾT
+TỪNG BƯỚC TÁI HIỆN và xuất ra Excel theo mẫu 3 cột (id | web/flutter | Bug).
+Đây là EXECUTION + BUG HUNTING — KHÔNG sinh code automation, KHÔNG chạy test case có sẵn.
+
+# MẪU EXCEL ĐÍCH (BẮT BUỘC bám sát — đúng như file mẫu user gửi)
+Excel xuất ra đúng 3 cột: `id | web/flutter | Bug`.
+- Cột `id`         : số thứ tự bug (1, 2, 3, ...).
+- Cột `web/flutter`: nền tảng lỗi (`web/flutter` / `flutter` / `web`).
+- Cột `Bug`        : 1 khối text nhiều dòng, theo đúng format:
+    1. <bước tái hiện 1 — cụ thể: màn hình nào, nút/field nào, nhập gì, phím tắt gì>
+    2. <bước tái hiện 2>
+    3. <bước tái hiện 3>
+    → Lỗi hiện tại: <hiện tượng lỗi quan sát được trên UI>
+    → Kết quả mong đợi: <hành vi đúng theo requirement>
+  (Lỗi phân quyền/bảo mật hoặc khi cần đề xuất sửa → thay/thêm dòng "→ Cần fix: <việc cần làm>".)
+
+# SKILL SỬ DỤNG (Pipeline — theo đúng thứ tự)
+1) /analyze-requirement-document  → ĐỌC & BÓC TÁCH REQUIREMENT.
+   (tại .claude/skills/analyze-requirement-document/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Đọc requirements/requirements_dieu_phoi_ca.md, bóc tách thành danh sách QUY TẮC KIỂM CHỨNG ĐƯỢC: mã hóa FR/BR/NFR,
+     field bắt buộc, ràng buộc định dạng/độ dài/giá trị biên, luồng trạng thái hợp lệ, thông báo
+     lỗi kỳ vọng, phân quyền... → đây là "Expected" để đối chiếu.
+   - KHÔNG sinh test case ở bước này; chỉ chuẩn hóa requirement thành nguồn chân lý.
+
+2) /explore-and-report-bugs-to-excel  → ĐỘNG CƠ CHÍNH (test web + săn lỗi + xuất bug).
+   (tại .claude/skills/explore-and-report-bugs-to-excel/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Khám phá web thật + đối chiếu hành vi với requirement đã bóc tách ở (1).
+   - Chủ động phá bằng data xấu/biên; hành vi thật ≠ requirement ⇒ BUG.
+   - Skill này đã TẬN DỤNG sẵn (theo SKILL.md của nó):
+     • /explore-website-requirements-by-flow — đi HẾT menu/tab/modal/nhánh rẽ, dựng bản đồ coverage.
+     • /generate-test-data — sinh data xấu/biên/edge (rỗng, quá dài, ký tự đặc biệt, số âm, boundary).
+     • /ui-debug-agent — inspect DOM khi element khó thao tác.
+     • /manual-testing-techniques — kỹ thuật test (EP/BVA/Decision Table/Error Guessing) + Severity/Priority.
+   - Bắt buộc nạp kèm: .claude/rules/locator_strategy.md, .claude/rules/delivery_checklist.md.
+   - Xuất bug ra Excel mẫu 3 cột + báo cáo + evidence.
+
+# INPUT (đọc trước khi chạy)
+1) FILE REQUIREMENT (nguồn chân lý để đối chiếu):  requirements/requirements_dieu_phoi_ca.md
+   - Đưa file này cho /analyze-requirement-document ở bước (1).
+   - Lỗi = hành vi thật ≠ requirement. Hành vi không có trong requirement nhưng rõ ràng vô lý
+     (crash, mất data, lỗi SQL...) → BUG nghi ngờ, đánh dấu "cần PO xác nhận". Không kết luận vội.
+2) LINK WEBSITE CẦN TEST (module Điều phối ca):
+   https://order-flutter.nasys.vn/pos-shell-route/pos-shift-route
+   - Đây là điểm xuất phát khám phá & săn lỗi. Nếu Partital/Enviroment.txt để URL khác →
+     ưu tiên URL này cho module Điều phối ca.
+3) FILE MÔI TRƯỜNG:  Partital/Enviroment.txt
+   - Thông tin đăng nhập: thientester1/admin/12345678,
+     ghi chú OTP/2FA/CAPTCHA. Đây là tài khoản TEST được phép thao tác.
+   - KHÔNG đọc `.env` để lấy credential đăng nhập app.
+
+# PHẠM VI TEST (Scope)
+- [ ] Test TẤT CẢ requirement, HOẶC
+- [ ] Lọc theo:  nhóm chức năng = [...] / mã FR = [...] / màn hình = [...]
+> Requirement nhiều (> 15 mục) hoặc chưa rõ scope → DỪNG hỏi user trước khi chạy.
+- Ưu tiên: luồng nghiệp vụ chính theo requirement → validation input → biên/data xấu
+  → trạng thái & điều hướng → console/network.
+- Scope loại trừ (không đụng tới): [nếu có]
+
+# TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
+- CHỈ chạy trên môi trường TEST/STAGING bằng tài khoản trong Partital/Enviroment.txt.
+- Cần Playwright/Browser MCP (ưu tiên) hoặc Chrome extension "Claude in Chrome" để tương tác
+  DOM thật. Chưa có engine nào kết nối → DỪNG, báo user. TUYỆT ĐỐI KHÔNG đoán locator,
+  không suy diễn kết quả.
+- Thao tác phá hủy (Create/Edit/Delete) ĐƯỢC PHÉP để test sâu, nhưng DỪNG xác nhận với user
+  1 lần trước khi bắt đầu; chỉ chạy TEST/STAGING; ghi log mọi thao tác phá hủy vào run/task.md.
+- CAPTCHA/OTP/2FA không tự vượt được → nhờ user thao tác hoặc ghi nhận BLOCKED kèm lý do.
+
+# NGUYÊN TẮC PHÁT HIỆN & GHI BUG
+- Desktop viewport 1920x1080 (Playwright MCP: browser_navigate → browser_resize(1920,1080)
+  → browser_snapshot). Smart wait, CẤM hard-sleep.
+- Chỉ ghi lỗi quan sát THẬT và đã TÁI HIỆN được — không bịa lỗi cho đủ số lượng. KHÔNG auto-heal.
+- 1 lỗi = 1 dòng Excel. Viết CHI TIẾT TỪNG BƯỚC từ điểm xuất phát rõ ràng (đăng nhập → màn hình
+  → thao tác), nêu đúng tên nút/field/phím tắt + dữ liệu cụ thể, đủ để dev làm theo y hệt.
+- Cột "Bug" theo đúng format mẫu: các bước đánh số → "→ Lỗi hiện tại:" → "→ Kết quả mong đợi:"
+  (hoặc "→ Cần fix:" cho lỗi phân quyền/bảo mật hoặc đề xuất sửa).
+- Chụp evidence tại bước lỗi; theo dõi console + network (lỗi JS / HTTP 4xx/5xx cũng là finding).
+- Đánh giá Severity/Priority theo /manual-testing-techniques, ghi trong run/report.md
+  (mẫu Excel 3 cột không có cột Severity/Priority).
+
+# OUTPUT (Tiếng Việt)
+- Findings trung gian: run/bugs.json (đúng schema của skill).
+- FILE EXCEL BUG (mẫu 3 cột id | web/flutter | Bug) → BẮT BUỘC nằm trong folder `Result/`
+  (tạo folder nếu chưa có; KHÔNG đè file cũ — đặt tên có ngày):
+    node .claude/skills/explore-and-report-bugs-to-excel/scripts/bugs_to_excel.js write \
+        run/bugs.json --out "Result/bugs_dieu_phoi_ca_<YYYYMMDD>.xlsx"
+  (cần package `exceljs` — thiếu thì npm i exceljs, hoặc trỏ NODE_PATH tới node_modules có exceljs)
+- Báo cáo tổng hợp: run/report.md (summary theo Severity/nhóm chức năng + chi tiết + evidence + limitations).
+- Evidence screenshots: run/evidence/  | Bản đồ coverage: run/coverage.md  | Nhật ký + log phá hủy: run/task.md
+- Tóm tắt cuối cho user: tổng N bug (Critical/Major/Minor/Trivial), số màn hình đã soi / BLOCKED,
+  requirement nào FAIL, các điểm cần PO xác nhận, đường dẫn file Excel trong Result/ và run/report.md.

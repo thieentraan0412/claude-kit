@@ -145,5 +145,6 @@ vite.config.ts.timestamp-*
 .playwright-mcp/
 reports/
 exports/
-requirements/
-testcases/
+
+# Image files
+*.png

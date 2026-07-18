@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "app": "orderTable — Cashier (Module Điều phối ca / Cashier Shift)",
+    "url": "https://table1.klkim.com/v2/order/cashier/shift",
+    "environment": "STAGING (Thientester)",
+    "engine": "Playwright MCP (1920x1080)",
+    "account": "admin / Admin master (KHÔNG ghi mật khẩu)",
+    "executed_at": "2026-07-16",
+    "scope": "Toàn bộ 10 flow FLOW-DPC-01..10 + 9 BR + 7 NFR (đối chiếu requirements/requirements_dieu_phoi_ca.md)",
+    "platform": "web/flutter"
+  },
+  "bugs": [
+    {
+      "id": 1,
+      "platform": "web/flutter",
+      "steps": [
+        "Đăng nhập Cashier (tài khoản admin / Admin master), mở menu \"Điều phối ca\" (URL .../v2/order/cashier/shift) với ca đang mở SCR00000004CN2.",
+        "Ở khối \"Giao dịch trong ca\" (panel phải), tìm một dòng có \"Loại giao dịch\" = \"Phiếu bán hàng\" (ví dụ dòng mã \"POS00000034CN2\", trạng thái \"Đã thanh toán\").",
+        "Bấm vào dòng \"Phiếu bán hàng\" đó (bấm ô \"Mã chứng từ\")."
+      ],
+      "actual": "Hệ thống điều hướng sang MỘT ỨNG DỤNG KHÁC (Flutter) tại https://order-flutter.nasys.vn/auth-route và hiển thị MÀN ĐĂNG NHẬP mới (\"ORDERSYS ORDER\": Store ID / Username / Password / Login) — phiên đăng nhập KHÔNG được chia sẻ (mất SSO). Người dùng bị đá ra màn đăng nhập, mất ngữ cảnh, không xem được chi tiết chứng từ. (Xem run/evidence/dpc_20260716_flutter_after_row_click.png)",
+      "expected": "Theo FR-DPC-16: bấm dòng \"Phiếu bán hàng\" mở màn đơn hàng POS (\"Danh sách menu\", /order/cashier/menu) hiển thị chi tiết đơn, KHÔNG yêu cầu đăng nhập lại.",
+      "fix": "Chia sẻ phiên/SSO giữa web Cashier (table1.klkim.com) và app đơn hàng Flutter (order-flutter.nasys.vn), hoặc điều hướng đúng tới màn chi tiết đơn thay vì màn đăng nhập; PO xác nhận đích điều hướng đúng của dòng giao dịch."
+    },
+    {
+      "id": 2,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\" (/v2/order/cashier/shift) — trang hiển thị bình thường, đứng yên khi KHÔNG thao tác.",
+        "Thực hiện thao tác bấm vào một dòng \"Phiếu bán hàng\" trong bảng \"Giao dịch trong ca\" (theo bug #1).",
+        "Quay lại trang \"Điều phối ca\" (mở lại URL /v2/order/cashier/shift) và quan sát trong vài giây; lặp lại việc mở trang này nhiều lần.",
+        "Thử mở modal \"Đóng ca\" → nhập số tiền → bấm \"Đóng ca ngay\" → chờ hộp thoại xác nhận."
+      ],
+      "actual": "Sau khi bấm dòng \"Phiếu bán hàng\", trang \"Điều phối ca\" (/shift) LIÊN TỤC TỰ ĐIỀU HƯỚNG về /order/cashier/menu (gần như ngay khi vừa tải), khiến không ở lại được màn \"Điều phối ca\" để thao tác. Hệ quả: luồng \"Đóng ca\" không hoàn tất được — sau khi bấm \"Đóng ca ngay\" xuất hiện hộp thoại xác nhận (#confirmCloseShift) nhưng trang tự nhảy về /menu làm hộp thoại biến mất trước khi kịp xác nhận; ca SCR00000004CN2 vẫn \"Đang mở\" (tái hiện 5+ lần). Màn /secondary-screen cũng bị điều hướng về /menu.",
+      "expected": "Theo NFR-06 (nghi vấn) và FLOW-DPC-07: trang \"Điều phối ca\" phải ở nguyên, không tự điều hướng về /menu; người dùng phải hoàn tất được thao tác Đóng ca (xác nhận → ca chuyển \"Đã đóng\").",
+      "fix": "PO xác nhận hành vi tự điều hướng /shift → /menu (\"tiếp tục đơn đang mở\") là chủ đích hay lỗi; nếu là lỗi thì bỏ redirect để dùng được màn Điều phối ca và hoàn tất Đóng ca. (Trạng thái kết thúc khi đóng ca — Mục 10 Q1 — hiện CHƯA kiểm chứng được do bị chặn bởi lỗi này.)"
+    },
+    {
+      "id": 3,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở.",
+        "Ở panel phải, bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\".",
+        "Quan sát bộ đếm ký tự dưới ô \"Nhập ghi chú\": hiển thị \"0/200\".",
+        "Gõ một chuỗi 63 ký tự vào ô ghi chú (ví dụ \"AUTO_DPC_20260716_ghichu_test_vuot_qua_50_ky_tu_0123456789_XYZX\") — gõ thật từng phím, rồi rời ô (blur)."
+      ],
+      "actual": "Bộ đếm ký tự vẫn hiển thị \"0/200\", đứng yên, không cập nhật theo số ký tự đã nhập dù đã gõ 63 ký tự (kiểm chứng cả khi gõ phím thật lẫn sau khi rời ô). (Xem run/evidence/dpc_20260716_close_modal_note_counter_stuck.png)",
+      "expected": "Bộ đếm cập nhật realtime theo số ký tự đã nhập (ví dụ \"63/200\")."
+    },
+    {
+      "id": 4,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở.",
+        "Ở panel phải, bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\".",
+        "Quan sát placeholder ô ghi chú: hiển thị \"Nhập ghi chú (tối đa 50 ký tự)\".",
+        "Gõ chuỗi 63 ký tự vào ô ghi chú và quan sát ô có chặn ở 50 ký tự không (kiểm tra thuộc tính maxlength của ô)."
+      ],
+      "actual": "Không nhất quán giới hạn ký tự: placeholder ghi \"tối đa 50 ký tự\", nhưng ô là <textarea> có maxlength=200 và bộ đếm hiển thị \"/200\"; ô cho nhập tới 63 ký tự (không chặn ở 50).",
+      "expected": "Thống nhất giới hạn: nếu giới hạn thật là 50 thì maxlength=50 + placeholder + bộ đếm đều là 50; nếu là 200 thì sửa placeholder \"tối đa 50 ký tự\" cho khớp. (BR-DPC-06)",
+      "fix": "Chốt một giới hạn (50 hoặc 200 theo PO) rồi đồng bộ placeholder + maxlength + bộ đếm."
+    },
+    {
+      "id": 5,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", đảm bảo có ca đang mở (Tiền mặt trong ca = -500,000đ).",
+        "Ở panel phải, bấm nút \"Đóng ca\" để mở modal \"Thông tin đóng ca\".",
+        "Gõ \"600000\" vào ô \"Nhập số tiền thực tế đếm được\" và QUAN SÁT dòng \"Chênh lệch\" TRONG KHI đang gõ (chưa rời ô).",
+        "Sau đó nhấn Tab (rời ô) và quan sát lại \"Chênh lệch\"; rồi xóa trắng ô số tiền (Ctrl+A, Delete) và quan sát \"Chênh lệch\" trước khi rời ô."
+      ],
+      "actual": "\"Chênh lệch\" KHÔNG cập nhật tức thời khi đang gõ: nhập 600,000 nhưng \"Chênh lệch\" vẫn \"0 đ\", chỉ nhảy đúng 1,100,000đ SAU KHI rời ô (blur). Khi xóa trắng ô (về 0), \"Chênh lệch\" còn hiển thị giá trị CŨ (ví dụ 500,123đ) không khớp số tiền hiện tại cho tới khi rời ô.",
+      "expected": "Theo FR-DPC-20 / BR-DPC-01: \"Chênh lệch\" = Số tiền thực đếm − Tiền mặt trong ca, được tính lại TỨC THỜI ngay khi nhập (không phải chờ blur), và luôn khớp với số tiền đang hiển thị trong ô."
+    },
+    {
+      "id": 6,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\", chọn ca có giao dịch (ca đang mở SCR00000004CN2 có 22 giao dịch).",
+        "Ở khối \"Giao dịch trong ca\", gõ vào ô \"Tìm mã, chú thích\" một chuỗi chắc chắn không khớp (ví dụ \"ZZZZ99999KHONGTONTAI\").",
+        "Quan sát vùng bảng giao dịch. (Có thể lặp lại bằng cách bỏ tick checkbox \"Hoàn thành\" khi không có giao dịch \"Đã hủy\".)"
+      ],
+      "actual": "Bảng giao dịch rỗng hoàn toàn (0 dòng) nhưng KHÔNG hiển thị bất kỳ thông báo trạng thái rỗng nào (không có \"Không có dữ liệu\"/\"Không tìm thấy\"...). Người dùng không rõ là lọc ra 0 kết quả hay trang bị lỗi. (Xem run/evidence/dpc_20260716_search_empty_no_message.png)",
+      "expected": "Khi bộ lọc/tìm kiếm không có kết quả, hiển thị thông báo trạng thái rỗng rõ ràng (ví dụ \"Không có giao dịch phù hợp\").",
+      "fix": "Bổ sung empty-state cho bảng \"Giao dịch trong ca\"; PO xác nhận nội dung thông báo."
+    },
+    {
+      "id": 7,
+      "platform": "web",
+      "steps": [
+        "Đăng nhập Cashier, mở \"Điều phối ca\" với ca đang mở SCR00000004CN2.",
+        "Ở khối thông tin ca đang mở, bấm liên kết \"Mở màn hình phụ\" (hoặc mở trực tiếp /v2/order/cashier/secondary-screen?shift_id=4).",
+        "Quan sát nội dung màn hình phụ trong vài giây."
+      ],
+      "actual": "Màn hình phụ hiển thị TRANG TRẮNG hoàn toàn (không nội dung, không logo, không chỉ báo tải), sau vài giây thì tự điều hướng về /order/cashier/menu. Không kiểm chứng được nội dung màn hình phụ. (Xem run/evidence/dpc_20260716_secondary_screen_blank.png)",
+      "expected": "Màn hình phụ (secondary screen) hiển thị nội dung phụ trợ theo shift_id (theo FR-DPC-23 / NFR-07), không để trắng và không tự điều hướng đi.",
+      "fix": "PO xác nhận mục đích/nội dung màn hình phụ; sửa để render đúng nội dung thay vì trang trắng + redirect."
+    }
+  ]
+}

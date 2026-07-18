@@ -1,24 +1,31 @@
-# Bug Hunting Progress — Module Điều phối ca
+# Bug Hunting Progress — Module Edit Menu (Quản lý hàng hóa) · 16-07-2026
 
-- [x] Bước 0: Thu thập input + xác nhận scope & quyền phá hủy
-- [x] Bước 1: Nạp spec làm nguồn chân lý + kỹ thuật test
-- [x] Bước 2: Chọn engine + kết nối browser (Playwright MCP)
-- [x] Bước 3: Login (phiên có sẵn) + dựng bản đồ coverage → run/coverage.md
-- [x] Bước 4: Khám phá & săn lỗi 8 flow → 6 bug (run/bugs.json + evidence)
-- [x] Bước 5: Xuất testcase-lỗi ra Excel → Result/bugs_dieu_phoi_ca_20260715.xlsx
-- [x] Bước 6: Báo cáo tổng hợp → run/report.md + tóm tắt cho user
+- [x] Bước 0: Thu thập input + DỪNG xác nhận scope & quyền phá hủy & engine với user
+- [x] Bước 1: Nạp spec làm nguồn chân lý (requirements/requirements_edit_menu.md)
+- [x] Bước 2: Chọn engine + kết nối browser (Playwright MCP — đã verify, cả Chrome ext cũng sẵn)
+- [x] Bước 3: Login + mở module Edit Menu (/pos-shell-route/menu-list-route)
+- [x] Bước 4: Đào sâu validation modal Tạo/Chỉnh sửa + xác nhận xóa → 6 bug (run/bugs.json)
+- [x] Bước 5: Xuất bug ra Excel → Result/bugs_edit_menu_20260716_1154.xlsx
+- [x] Bước 6: Báo cáo + tóm tắt → run/report.md
 
-## Kết quả: 6 bug (0 Critical · 2 Major · 3 Minor · 1 Trivial); 2 mục cần PO. 8/8 flow đã soi. 0 BLOCKED.
+## Cấu hình lần chạy (theo lựa chọn user)
+- **Scope**: ĐÀO SÂU VALIDATION MODAL Tạo/Chỉnh sửa hàng hóa (không chạy toàn bộ 12 flow).
+- **Quyền phá hủy**: CÓ (TEST) — data test gắn nhãn `auto_bughunt_*`, ghi log bên dưới.
+- **Engine**: Playwright MCP (viewport 1920×1080).
 
-## Scope: Toàn bộ 8 flow (FLOW-DPC-01..08) | Quyền phá hủy: CÓ (đầy đủ) | Engine: Playwright MCP
-## Môi trường: STAGING · https://table1.klkim.com/v2/order/cashier/shift · TK: admin (Admin master) · đã đăng nhập sẵn
-## Trạng thái ban đầu: ca SCR00000008CN2 ĐANG MỞ (đầu ca 500,000đ, 0 giao dịch); lịch sử có SCR00000007CN2 (đã đóng, 500,000đ)
-## Evidence prefix: run/evidence/dpc_*  (tránh đè evidence module Return cũ)
+## Thông tin truy cập (QUAN TRỌNG — prompt ghi NGƯỢC nhãn)
+- Prompt/requirements ghi: ID cửa hàng `admin` · Tên đăng nhập `thientester`.
+- THỰC TẾ (theo Partital/Enviroment.txt + phản hồi server): **Store ID = `Thientester`**, **Username = `admin`**, mật khẩu 12345678.
+- Đăng nhập sai nhãn → API /login trả 404 "Công ty chưa được đăng ký". Đổi đúng (Store ID=Thientester, User=admin) → login 200 OK, hiển thị "Admin master".
+- Đường đi module: Login → chọn không gian "Cashier" → bấm "Menu" trên nav → module "Menu list".
+  (Lưu ý: bấm THƯỜNG vào "Menu" đã mở được module — KHÁC BR-MENU-05 vốn nói phải nhấn-giữ ~2s.)
 
-## Log thao tác phá hủy (Create/Edit/Delete)
-| Thời điểm | Màn hình | Thao tác | Dữ liệu bị ảnh hưởng |
-|---|---|---|---|
-| 15-07-2026 22:01:58 | Modal Đóng ca | ĐÓNG ca SCR00000008CN2 (tiền thực tế 600,000đ, chênh lệch 100,000đ, ghi chú `AUTO_DPC_close_SCR008_150726`) | Ca SCR008 chuyển "đã đóng"; lịch sử ghi Tổng tiền mặt 600,000đ |
-| 15-07-2026 22:03:05 | Modal Mở ca làm việc | MỞ ca mới SCR00000009CN2 (tiền đầu ca 500,000đ, ghi chú `AUTO_DPC_reopen_150726_restore`) — khôi phục trạng thái "có ca đang mở" | Tạo ca mới SCR009 Đang mở (0 giao dịch) |
+## Log thao tác phá hủy (Create/Edit/Delete) — TEST env
+| Thời điểm (VN) | Màn hình | Thao tác | Dữ liệu | Kết quả |
+|---|---|---|---|---|
+| ~11:30 | Modal Tạo HH | POST /menu/store (name `auto_bughunt_valtest_0716`, sale_price=0, thiếu Nhóm/ĐVT/VAT) | data test | success:false — KHÔNG tạo (không sinh rác) |
+| ~11:36 | Modal Tạo HH | POST /menu/store (name `auto_bughunt_req_0716`, thiếu Nhóm/ĐVT/VAT) | data test | success:false — KHÔNG tạo |
+| ~11:43 | Modal Tạo HH | POST /menu/store (name `auto_bughunt_clr_0716`, Nhóm=Bò, ĐVT=Lon, VAT=10) | data test | success:true — **TẠO** item id=223, code PRO00000222CN2 |
+| ~11:45 | Danh sách | POST /menu/delete item id=223 (PRO00000222CN2) | data test | 200 OK — **ĐÃ XÓA**, danh sách về 221 records |
 
-> Ghi chú khôi phục: trước phiên có ca SCR008 đang mở → sau phiên có ca SCR009 đang mở (500,000đ, 0 giao dịch). Trạng thái "có 1 ca đang mở" được bảo toàn.
+> Kết thúc phiên: môi trường SẠCH (221 records như ban đầu). Không còn dữ liệu test tồn dư.

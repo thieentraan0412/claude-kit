@@ -38,7 +38,6 @@ thao tác/luồng (kể cả luồng đa trang), rồi sinh tài liệu Requirem
 - Đường đi tới module (cách BẬT/mở module menu):
   #   1. Đăng nhập vào hệ thống (Cashier).
   #   2. Nhấn tổ hợp phím Ctrl + F9 → hiện lên menu (thanh/lưới icon).
-  #   3. Click và GIỮ 2 giây vào icon "Menu" để vào trang Edit menu.
   #   (Không phải click thường — phải nhấn giữ đủ ~2s mới mở được trang.)
 - Thông tin đăng nhập: thientester/admin/12345678  (tài khoản TEST, được phép thao tác)
 - Scope loại trừ (không đụng tới): [nếu có]
