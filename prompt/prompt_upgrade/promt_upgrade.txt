@@ -1,0 +1,50 @@
+# MỤC TIÊU
+Nâng cấp cột `Bug` (text thô, sơ sài) trong file Excel thành mô tả CHI TIẾT TỪNG BƯỚC
+tái hiện — như một guide giúp dev/tester phát hiện đúng bug — đối chiếu REQUIREMENT làm
+nguồn chân lý. Đây là TEXT REWRITE OFFLINE — KHÔNG chạy browser, KHÔNG săn bug mới,
+KHÔNG thực thi test case, KHÔNG sinh code automation.
+
+# SKILL SỬ DỤNG (Pipeline — theo đúng thứ tự)
+1) /analyze-requirement-document  → ĐỌC & BÓC TÁCH REQUIREMENT.
+   (tại .claude/skills/analyze-requirement-document/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Bóc tách requirement thành: tên màn hình/menu, nút/field, ràng buộc validation,
+     luồng trạng thái, thông báo lỗi kỳ vọng, mã FR/BR → nguồn chân lý cho
+     "Kết quả mong đợi" và tên element trong các bước tái hiện.
+   - KHÔNG sinh test case ở bước này.
+
+2) /upgrade-bug-description  → ĐỘNG CƠ CHÍNH (nâng cấp text → guide chi tiết).
+   (tại .claude/skills/upgrade-bug-description/SKILL.md — nếu `/` không resolve thì Read thẳng)
+   - Skill này đã yêu cầu nạp kèm /manual-testing-techniques (chuẩn bug report).
+   - Dùng Mode Excel (Bước 4 của skill) với script:
+     .claude/skills/upgrade-bug-description/scripts/apply_bug_upgrades.py
+
+# INPUT (đọc trước khi chạy)
+1) FILE REQUIREMENT (nguồn chân lý):  [requirements/requirement.txt]
+
+2) FILE EXCEL (có cột `Bug` chứa text thô cần nâng cấp):  [đường dẫn file .xlsx]
+
+# QUY TẮC NÂNG CẤP (BẮT BUỘC)
+- Format chuẩn từng ô (đúng mẫu cột Bug của repo):
+    1. <bước tái hiện 1 — cụ thể: màn hình nào, nút/field nào, nhập gì, phím tắt gì>
+    2. <bước tái hiện 2>
+    → Lỗi hiện tại: <hiện tượng lỗi — giữ đúng ý text gốc>
+    → Kết quả mong đợi: <hành vi đúng theo requirement, kèm mã FR/BR nếu có>
+  (Lỗi phân quyền/bảo mật hoặc cần đề xuất sửa → thay/thêm "→ Cần fix: <việc cần làm>".)
+- Bước 1 luôn là điểm xuất phát rõ ràng (đăng nhập → điều hướng màn hình → thao tác);
+  tên nút/field lấy đúng theo requirement; dữ liệu nhập cụ thể.
+- TRUNG THỰC: mọi chi tiết bổ sung phải có căn cứ (text gốc / requirement / cột khác trong
+  Excel). Thiếu căn cứ → đánh dấu [Cần xác nhận] ngay tại chỗ. KHÔNG bịa, KHÔNG đoán locator,
+  KHÔNG đổi ý nghĩa bug gốc.
+- 1 đoạn text gộp nhiều lỗi → tách thành nhiều block, báo lại user.
+- Dòng Bug trống → bỏ qua, ghi chú trong báo cáo.
+
+# OUTPUT (Tiếng Việt)
+- Kết quả trung gian: run/bug_upgrades.json (đúng schema trong SKILL.md của skill).
+- Ghi vào CHÍNH file Excel đầu vào: thêm cột `Bug (chi tiết)` NGAY BÊN PHẢI cột `Bug`
+  (giữ nguyên cột Bug gốc; script tự backup file gốc vào run/backup/ trước khi ghi):
+    python .claude/skills/upgrade-bug-description/scripts/apply_bug_upgrades.py read  "<file.xlsx>"
+    python .claude/skills/upgrade-bug-description/scripts/apply_bug_upgrades.py write "<file.xlsx>" run/bug_upgrades.json
+  (cần package openpyxl — thiếu thì: pip install openpyxl --break-system-packages)
+- Báo cáo tóm tắt cuối cho user: số dòng đã nâng cấp / bỏ qua (trống), danh sách các điểm
+  [Cần xác nhận], bug bị tách (nếu có), đường dẫn file Excel + file backup.
+- Trước khi bàn giao: đối chiếu .claude/rules/delivery_checklist.md.

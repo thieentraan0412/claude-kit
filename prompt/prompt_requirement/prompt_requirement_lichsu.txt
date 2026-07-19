@@ -1,0 +1,64 @@
+# MỤC TIÊU
+Khám phá SÂU module được cung cấp bằng cách tương tác thật trên browser, đi hết mọi
+thao tác/luồng (kể cả luồng đa trang), rồi sinh tài liệu Requirements CHUẨN BA
+(developer-ready & tester-ready), tổ chức theo LUỒNG THAO TÁC.
+
+# KẾT HỢP 2 SKILL (Pipeline — theo đúng thứ tự)
+1) /explore-website-requirements-by-flow  → ĐỘNG CƠ CHÍNH.
+   - Crawl KHÔNG GIỚI HẠN THAO TÁC: đi hết element/menu/tab/modal/nhánh rẽ.
+   - Chạy PLAYBOOK theo archetype UI (bảng CRUD, form/modal, wizard, master-detail,
+     search/filter/sort/pagination, phân quyền) để không bỏ sót thao tác.
+   - Theo dấu LUỒNG end-to-end, vẽ sơ đồ Mermaid, lập Ma trận Coverage + RTM.
+   - Sinh requirements chuẩn BA: mã hóa FR/BR/NFR/UC/FLOW, User Story INVEST,
+     Acceptance Criteria (Gherkin), MoSCoW, Data Dictionary, Use Case Spec.
+2) /generate-requirements-from-website (kèm /requirements-analyzer) → CHUẨN ĐỊNH DẠNG.
+   - Nạp để lấy chuẩn trình bày SRS (Overview, Functional Requirements,
+     Field Specifications, Business Rules & Validations).
+   - Dùng như bộ khung/định dạng tham chiếu cho tài liệu cuối; KHÔNG thay thế bước
+     khám phá tương tác ở (1).
+   - Khi có mâu thuẫn định dạng, ưu tiên cấu trúc đầu ra của skill (1) vì đã bao trùm
+     và chi tiết hơn (theo luồng + RTM + Gherkin).
+
+# CONTEXT  (thay các giá trị dưới đây cho module thực tế của bạn)
+- Mô tả hệ thống: [Mô tả ngắn gọn về hệ thống hiện tại, module Lịch sử]
+- Website URL: [Điền URL màn hình Lịch sử, VD: https://table1.klkim.com/v2/order/cashier/history]
+- Module Name: Lịch sử
+  # Lưu ý: combo này phát huy tối đa với MODULE NGHIỆP VỤ có nhiều thao tác/luồng
+  # (VD: Lịch sử, Điều phối ca, Return Order, Edit menu...). Với trang đơn giản như Login,
+  # Playbook archetype và cảnh báo thao tác phá hủy gần như không áp dụng — vẫn chạy
+  # được nhưng chỉ khai thác được phần nhỏ năng lực của skill.
+  # Gợi ý thao tác/luồng thường có ở Lịch sử (kiểm chứng trên UI thật, KHÔNG bịa):
+  #   - Danh sách giao dịch/đơn hàng đã thực hiện + các cột hiển thị (mã, thời gian,
+  #     loại giao dịch, số tiền, trạng thái, người thực hiện...).
+  #   - Lọc theo khoảng ngày (hôm nay/tuần/tháng/tùy chọn); lọc theo loại giao dịch,
+  #     trạng thái, ca làm việc, nhân viên.
+  #   - Tìm kiếm theo mã giao dịch/mã đơn/tên khách; sắp xếp; phân trang.
+  #   - Xem chi tiết giao dịch (modal/trang chi tiết): danh sách món, thanh toán, VAT.
+  #   - Các hành động trên bản ghi (nếu có): in lại hóa đơn, trả hàng từ lịch sử,
+  #     hủy/hoàn giao dịch, xuất dữ liệu.
+  #   - Trạng thái rỗng (không có dữ liệu trong khoảng lọc) và cách hiển thị.
+  #   - Phân quyền (tài khoản Thu ngân xem được gì so với Manager).
+- Đường đi tới module: [VD: Đăng nhập Cashier → mở màn hình "Lịch sử"] (bỏ trống nếu là trang đăng nhập)
+- Thông tin đăng nhập: thientester/admin/12345678  (tài khoản TEST, được phép thao tác)
+- Scope loại trừ (không đụng tới): [nếu có]
+
+# TIỀN ĐIỀU KIỆN AN TOÀN (BẮT BUỘC)
+- CHỈ chạy trên môi trường TEST/STAGING bằng tài khoản TEST ở trên.
+- Skill có thể tạo/sửa/xóa dữ liệu thật khi khám phá (VD: trả hàng/hủy giao dịch từ lịch sử)
+  → xác nhận 1 lần với user trước khi bắt đầu, và ghi lại mọi thao tác phá hủy vào
+  Ma trận Coverage.
+- Cần Playwright/Browser MCP để tương tác DOM thật. Nếu CHƯA kết nối browser MCP:
+  DỪNG và báo user — KHÔNG đoán locator / không suy diễn field.
+
+# YÊU CẦU THỰC THI
+- Set viewport desktop 1920x1080, dùng browser_snapshot làm nguồn chân lý về DOM.
+- KHÔNG bịa field/nút/validation không nhìn thấy. Logic không quan sát được → đưa vào
+  mục "Câu hỏi làm rõ với PO/User".
+- Mọi FR/BR/NFR/UC có MÃ DUY NHẤT; mỗi luồng có User Story + Acceptance Criteria (Gherkin)
+  + độ ưu tiên MoSCoW; toàn tài liệu phải có Ma trận Coverage và RTM (truy vết về bằng chứng).
+
+# OUTPUT FORMAT
+- Toàn bộ tài liệu bằng Tiếng Việt, chuyên nghiệp.
+- Xuất file Markdown: requirements/requirements_lich_su.md
+  (theo cấu trúc SRS 10 mục của skill /explore-website-requirements-by-flow).
+- Nếu tài liệu dài, trình bày qua Artifact để tiện lưu/xuất file.
